@@ -1,7 +1,5 @@
 .container{
     width: 100vw;
-    position: fixed;
-    top: 0;
     height: 15%;
     background-color: var(--black);
     color: var(--light-white);

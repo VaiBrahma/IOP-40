@@ -1,0 +1,39 @@
+.container{
+    width: 80vw;
+    background-color: white;
+    border-radius: 16px;
+    /* border: 1px solid red; */
+    margin: auto;
+    padding: 5px 10px;
+    box-shadow: #0000002a 0 0 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerr{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    /* border: 2px solid; */
+    border-bottom: 1.5px solid var(--light-white);
+    padding: 2.5px;
+}   
+
+.title{
+    font-weight: bold;
+    font-size: var(--font-subheading);
+}
+
+.blu:hover{
+    background-color: var(--dark-blue);
+}   
+
+.rd{
+    background-color: var(--red);
+}
+
+.rd:hover{
+    background-color: var(--dark-red);
+}

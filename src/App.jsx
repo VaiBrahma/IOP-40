@@ -1,5 +1,6 @@
 import './App.css'
 import Background from './components/Background/Background'
+import BusData from './components/busData/BusData'
 import Navbar from './components/navbar/Navbar'
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <>
       <Background/>
       <Navbar/>
+      <BusData/>
     </>
   )
 }

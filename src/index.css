@@ -27,6 +27,12 @@ body{
   --font-small: 1rem;
   --line-height-heading: 1.3;
   --line-height-paragraph: 1.6;
+
+  --black: #181D2A;
+  --light-white: #E8EBED;
+  --blue: #748EFE;
+  --red: #FF5300;
+  --white: #FFFFFF;
 }
 
 @media (max-width: 1024px) {

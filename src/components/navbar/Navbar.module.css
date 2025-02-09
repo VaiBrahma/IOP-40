@@ -3,8 +3,8 @@
     position: fixed;
     top: 0;
     height: 15%;
-    background-color: #181D2A;
-    color: #F5F5F5;
+    background-color: var(--black);
+    color: var(--light-white);
     display: flex;
     justify-content:space-between;
     align-items: center;

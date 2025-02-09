@@ -1,0 +1,29 @@
+.container{
+    background-color: #F5F5F5;
+    position: fixed;
+    top:0;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1000;
+}
+
+.topbar{
+    width: 100vw;
+    height: 20%;
+    background-color: #181D2A;
+    min-height: 100px;
+    position: fixed;
+    top: 0;
+    z-index: -1000;
+}
+
+.imgg{
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: 60%;
+}       
+
+.centreImg{
+    height: 100%;
+}

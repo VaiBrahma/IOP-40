@@ -11,6 +11,7 @@
     position: sticky;
     top: 0;
     z-index: 1;
+    transition: all ease-in-out 0.5s;
 }
 
 .iitrLogo{

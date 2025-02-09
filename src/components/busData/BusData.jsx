@@ -16,6 +16,7 @@ const BusData = () => {
           <div className={styles.btns}>
             <button className={`${styles.blu} btn`} onClick="autofillFiveBusNetwork()">IEEE 5-Bus</button>
             <button className={`${styles.blu} btn`} onClick="autofillFourteenBusNetwork()">IEEE 14-Bus</button>
+            <button className={`${styles.grn} btn`}>Upload XLSX</button>
             <button className={`${styles.rd} btn`} onClick={()=>{setFlag(e=>!e)}}>Manually Add Data</button>
           </div>
           
@@ -24,7 +25,7 @@ const BusData = () => {
         {flag && 
         <div className={styles.overlay}>
           <div className={styles.modal}>
-            <input type="number" id="numBuses" className={styles.busno} placeholder='Enter the number of buses'/>
+            <input type="number" id="numBuses" className={styles.busno} placeholder='Enter the number of Buses'/>
             <button className={`${styles.sub} btn`} onClick={generateBusTable}>Sumbit</button>
           </div>
         </div>}
@@ -32,80 +33,14 @@ const BusData = () => {
         <div className={styles.busTableContainer}>
         <table>
           <thead>
-            <tr>
-              <th>Bus No.</th>
-              <th>Bus Type</th>
-              <th>Voltage (pu)</th>
-              <th>Angle (degree)</th>
-              <th>P<sub>gen</sub> (pu)</th>
-              <th>Q<sub>gen</sub> (pu)</th>
-              <th>P<sub>load</sub> (pu)</th>
-              <th>Q<sub>load</sub> (pu)</th>
-              <th>Q<sub>min</sub> (pu)</th>
-              <th>Q<sub>max</sub> (pu)</th>
-            </tr>
+            <tr><th>Bus No.</th><th>Bus Type</th><th>Voltage (pu)</th><th>Angle (degree)</th><th>P<sub>gen</sub> (pu)</th><th>Q<sub>gen</sub> (pu)</th><th>P<sub>load</sub> (pu)</th><th>Q<sub>load</sub> (pu)</th><th>Q<sub>min</sub> (pu)</th><th>Q<sub>max</sub> (pu)</th></tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1.</td>
-              <td>1</td>
-              <td>1</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <td>2.</td>
-              <td>2</td>
-              <td>1</td>
-              <td>0</td>
-              <td>0.5</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>-5</td>
-              <td>5</td>
-            </tr>
-            <tr>
-              <td>3.</td>
-              <td>2</td>
-              <td>1</td>
-              <td>0</td>
-              <td>1.0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>-0.5</td>
-              <td>0.5</td>
-            </tr>
-            <tr>
-              <td>4.</td>
-              <td>3</td>
-              <td>1</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>1.15</td>
-              <td>0.6</td>
-              <td>0</td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <td>5.</td>
-              <td>3</td>
-              <td>1</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0.85</td>
-              <td>0.4</td>
-              <td>0</td>
-              <td>0</td>
-            </tr>
+            <tr><td>1.</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>2.</td><td>2</td><td>1</td><td>0</td><td>0.5</td><td>0</td><td>0</td><td>0</td><td>-5</td><td>5</td></tr>
+            <tr><td>3.</td><td>2</td><td>1</td><td>0</td><td>1.0</td><td>0</td><td>0</td><td>0</td><td>-0.5</td><td>0.5</td></tr>
+            <tr><td>4.</td><td>3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1.15</td><td>0.6</td><td>0</td><td>0</td></tr>
+            <tr><td>5.</td><td>3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0.85</td><td>0.4</td><td>0</td><td>0</td></tr>
           </tbody>
         </table>
       </div>

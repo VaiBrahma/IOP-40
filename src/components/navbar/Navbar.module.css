@@ -8,6 +8,9 @@
     align-items: center;
     /* border: 1px solid red; */
     min-height: 60px;;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .iitrLogo{

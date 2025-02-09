@@ -10,6 +10,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .headerr{
@@ -37,3 +38,112 @@
 .rd:hover{
     background-color: var(--dark-red);
 }
+
+.overlay {
+    position: absolute;
+    border-radius: 15px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.modal{
+    background-color: var(--white);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+    position: absolute;
+    right: 1.5%;
+    top: 40px;
+    padding: 1.1rem;
+    animation: modalShake 0.6s ease-in-out;
+    transform-origin: 60% 0%;
+    z-index: 2;
+}
+
+.busno{
+    width: 100%;
+    padding: 5px;
+    min-width: 170px;
+}
+.sub{
+    width: 100%;
+}   
+
+.busTableContainer {
+    width: 100%;
+    margin: 20px 0;
+  }
+  
+  .busTableContainer table {
+    width: 100%;
+    border-collapse: collapse;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .busTableContainer tr {
+    display: flex;
+    width: 100%;
+  }
+  
+  .busTableContainer th,
+  .busTableContainer td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    flex: 1;
+  }
+  
+  .busTableContainer th:first-child,
+  .busTableContainer td:first-child {
+    flex: 0 0 50px;
+    /* background-color: var(--black);
+    color: var(--light-white);
+    border: none; */
+  }
+  
+  .busTableContainer thead{
+    background-color: var(--black);
+    color: var(--light-white);
+  }
+  
+  .busTableContainer tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .cover{
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #000000cc;
+    z-index: 1;
+  }
+
+@media (max-width: 1020px){
+    .container{
+        width: 95vw;
+    }   
+}
+
+@keyframes modalShake {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(-1deg); }
+    20% { transform: rotate(1deg); }
+    30% { transform: rotate(-1deg); }
+    40% { transform: rotate(1deg); }
+    50% { transform: rotate(-0.5deg); }
+    60% { transform: rotate(0.5deg); }
+    70% { transform: rotate(-0.5deg); }
+    80% { transform: rotate(0.5deg); }
+    90% { transform: rotate(-0.25deg); }
+    100% { transform: rotate(0deg); }
+  }

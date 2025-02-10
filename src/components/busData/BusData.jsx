@@ -14,7 +14,7 @@ const BusData = () => {
   const handleAutofillFiveBusNetwork = () => {
     setBuses(autofillFiveBusNetwork());
     setWhichData(1);
-    console.log(buses);
+    // console.log(buses);
   }
 
   const handelAutofillFourteenBusNetwork = () => {
@@ -30,10 +30,10 @@ const BusData = () => {
 
   const handleGenerateBusTable = () => { 
     setFlag(e => !e);
-    // console.log(inputValue);
     setBusNo(inputValue);
     setBuses(initializeBusData(inputValue));
     setWhichData(3);
+    // console.log(inputValue);
   };
 
   return (

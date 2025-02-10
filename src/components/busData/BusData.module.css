@@ -81,81 +81,40 @@
     padding: 5px;
     min-width: 170px;
 }
+
 .sub{
     width: 100%;
 }   
-
-.busTableContainer {
-    width: 100%;
-    margin: 20px 0;
-  }
   
-  .busTableContainer table {
-    width: 100%;
-    border-collapse: collapse;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .busTableContainer tr {
-    display: flex;
-    width: 100%;
-  }
-  
-  .busTableContainer th,
-  .busTableContainer td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-    flex: 1;
-  }
-  
-  .busTableContainer th:first-child,
-  .busTableContainer td:first-child {
-    flex: 0 0 50px;
-    /* background-color: var(--black);
-    color: var(--light-white);
-    border: none; */
-  }
-  
-  .busTableContainer thead{
-    background-color: var(--black);
-    color: var(--light-white);
-  }
-  
-  .busTableContainer tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .cover{
-    position: fixed;
-    top: 0;
-    height: 100vh;
-    width: 100vw;
-    background-color: #000000cc;
-    z-index: 1;
-  }
+.cover{
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000000cc;
+  z-index: 1;
+}
 
 @media (max-width: 1020px){
-    .container{
-        width: 95vw;
-    }   
+  .container{
+      width: 95vw;
+  }   
 }
 
 @keyframes modalShake {
-    0% { transform: rotate(0deg); }
-    10% { transform: rotate(-1deg); }
-    20% { transform: rotate(1deg); }
-    30% { transform: rotate(-1deg); }
-    40% { transform: rotate(1deg); }
-    50% { transform: rotate(-0.5deg); }
-    60% { transform: rotate(0.5deg); }
-    70% { transform: rotate(-0.5deg); }
-    80% { transform: rotate(0.5deg); }
-    90% { transform: rotate(-0.25deg); }
-    100% { transform: rotate(0deg); }
-  }
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(-1deg); }
+  20% { transform: rotate(1deg); }
+  30% { transform: rotate(-1deg); }
+  40% { transform: rotate(1deg); }
+  50% { transform: rotate(-0.5deg); }
+  60% { transform: rotate(0.5deg); }
+  70% { transform: rotate(-0.5deg); }
+  80% { transform: rotate(0.5deg); }
+  90% { transform: rotate(-0.25deg); }
+  100% { transform: rotate(0deg); }
+}
 
-  .busTableContainer input{
-    width: 100%;
-  }
+.tableContainer input{
+  width: 100%;
+}

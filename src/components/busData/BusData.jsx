@@ -4,31 +4,50 @@ import styles from './BusData.module.css';
 const BusData = () => {
 
   const [flag, setFlag] = useState(false);
-  const [whichData, setWhichData] = useState(3);
-  const [numRows, setNumRows] = useState(5);
+  const [whichData, setWhichData] = useState(1);
+  const [busNo, setBusNo] = useState(5);
+  const [inputValue, setInputValue] = useState(5);
   const title = "Bus Data";
 
-  const generateBusTable = () => { setFlag(e => !e) };
+  const handleAutofillFiveBusNetwork = () => {
+    setWhichData(1);
+  }
+
+  const handelAutofillFourteenBusNetwork = () => {
+    setWhichData(2);
+  }
+
+  const handleBusNoChange = (e) => {
+    setInputValue(Number(e.target.value));
+    // console.log(busNo);
+  }
+
+  const handleGenerateBusTable = () => { 
+    setFlag(e => !e);
+    // console.log(inputValue);
+    setBusNo(inputValue);
+    setWhichData(3);
+  };
 
   return (
     <div className={styles.container}>
         {flag && <div className={styles.cover}></div>}
+
         <div className={styles.headerr}>
           <div className={styles.title}>{title}</div>
           <div className={styles.btns}>
-            <button className={`${styles.blu} btn`} onClick="autofillFiveBusNetwork()">IEEE 5-Bus</button>
-            <button className={`${styles.blu} btn`} onClick="autofillFourteenBusNetwork()">IEEE 14-Bus</button>
+            <button className={`${styles.blu} btn`} onClick={handleAutofillFiveBusNetwork}>IEEE 5-Bus</button>
+            <button className={`${styles.blu} btn`} onClick={handelAutofillFourteenBusNetwork}>IEEE 14-Bus</button>
             <button className={`${styles.grn} btn`}>Upload XLSX</button>
             <button className={`${styles.rd} btn`} onClick={()=>{setFlag(e=>!e)}}>Manually Add Data</button>
           </div>
-          
         </div>
 
         {flag && 
         <div className={styles.overlay}>
           <div className={styles.modal}>
-            <input type="number" id="numBuses" className={styles.busno} placeholder='Enter the number of Buses'/>
-            <button className={`${styles.sub} btn`} onClick={generateBusTable}>Sumbit</button>
+            <input type="number" id="numBuses" className={styles.busno} onChange={handleBusNoChange} defaultValue={inputValue} min={1} max={11} placeholder='Enter the number of Buses'/>
+            <button className={`${styles.sub} btn`} onClick={handleGenerateBusTable}>Sumbit</button>
           </div>
         </div>}
 
@@ -67,10 +86,10 @@ const BusData = () => {
             }
             {whichData === 3 &&
             <>
-              {[...Array(numRows)].map((_, index) => (
+              {[...Array(busNo)].map((_, index) => (
               <tr key={index}>
-                <td>{index + 1}</td>
-                <td><input type="number" /></td>
+                <td>{index + 1}.</td>
+                <td><input type="number" min={1} max={3}/></td>
                 <td><input type="number" step="0.001" /></td>
                 <td><input type="number" step="0.001" /></td>
                 <td><input type="number" step="0.001" /></td>

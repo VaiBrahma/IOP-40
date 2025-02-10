@@ -8,14 +8,22 @@ const LineData = () => {
 
   const generateLineTable = () => { setFlag(e => !e) };
 
+  const handleAutofillFiveBusNetwork = () => {
+
+  }
+
+  const handleAutofillFourteenBusNetwork = () => {
+
+  }
+
   return (
     <div className={styles.container}>
         {flag && <div className={styles.cover}></div>}
         <div className={styles.headerr}>
           <div className={styles.title}>{title}</div>
           <div className={styles.btns}>
-            <button className={`${styles.blu} btn`} onClick="autofillFiveBusNetwork()">IEEE 6-Line</button>
-            <button className={`${styles.blu} btn`} onClick="autofillFourteenBusNetwork()">IEEE 20-Line</button>
+            <button className={`${styles.blu} btn`} onClick={handleAutofillFiveBusNetwork}>IEEE 6-Line</button>
+            <button className={`${styles.blu} btn`} onClick={handleAutofillFourteenBusNetwork}>IEEE 20-Line</button>
             <button className={`${styles.grn} btn`}>Upload XLSX</button>
             <button className={`${styles.rd} btn`} onClick={()=>{setFlag(e=>!e)}}>Manually Add Data</button>
           </div>

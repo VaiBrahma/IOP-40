@@ -14,7 +14,7 @@ const BusData = () => {
   const handleAutofillFiveBusNetwork = () => {
     setBuses(autofillFiveBusNetwork());
     setWhichData(1);
-    console.log(buses);
+    // console.log(buses);
   }
 
   const handelAutofillFourteenBusNetwork = () => {
@@ -30,10 +30,10 @@ const BusData = () => {
 
   const handleGenerateBusTable = () => { 
     setFlag(e => !e);
-    // console.log(inputValue);
     setBusNo(inputValue);
     setBuses(initializeBusData(inputValue));
     setWhichData(3);
+    // console.log(inputValue);
   };
 
   return (
@@ -58,7 +58,7 @@ const BusData = () => {
           </div>
         </div>}
 
-        <div className={styles.busTableContainer}>
+        <div className={`tableContainer`}>
         <table>
           <thead>
             <tr><th>Bus No.</th><th>Bus Type</th><th>Voltage (pu)</th><th>Angle (degree)</th><th>P<sub>gen</sub> (pu)</th><th>Q<sub>gen</sub> (pu)</th><th>P<sub>load</sub> (pu)</th><th>Q<sub>load</sub> (pu)</th><th>Q<sub>min</sub> (pu)</th><th>Q<sub>max</sub> (pu)</th></tr>

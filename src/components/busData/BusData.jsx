@@ -58,7 +58,7 @@ const BusData = () => {
           </div>
         </div>}
 
-        <div className={styles.busTableContainer}>
+        <div className={`tableContainer`}>
         <table>
           <thead>
             <tr><th>Bus No.</th><th>Bus Type</th><th>Voltage (pu)</th><th>Angle (degree)</th><th>P<sub>gen</sub> (pu)</th><th>Q<sub>gen</sub> (pu)</th><th>P<sub>load</sub> (pu)</th><th>Q<sub>load</sub> (pu)</th><th>Q<sub>min</sub> (pu)</th><th>Q<sub>max</sub> (pu)</th></tr>

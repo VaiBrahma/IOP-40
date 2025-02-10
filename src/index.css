@@ -71,3 +71,49 @@ body{
 .btn:active{
   transform: scale(0.95);
 }
+
+.tableContainer {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.tableContainer table {
+  width: 100%;
+  border-collapse: collapse;
+  display: flex;
+  flex-direction: column;
+}
+
+.tableContainer tr {
+  display: flex;
+  width: 100%;
+}
+
+.tableContainer th,
+.tableContainer td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  flex: 1;
+}
+
+.tableContainer th:first-child,
+.tableContainer td:first-child {
+  flex: 0 0 50px;
+  /* background-color: var(--black);
+  color: var(--light-white);
+  border: none; */
+}
+
+.tableContainer thead{
+  background-color: var(--black);
+  color: var(--light-white);
+}
+
+.tableContainer tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.busTableContainer input{
+  width: 100%;
+}

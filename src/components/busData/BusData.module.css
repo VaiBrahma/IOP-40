@@ -155,3 +155,7 @@
     90% { transform: rotate(-0.25deg); }
     100% { transform: rotate(0deg); }
   }
+
+  .busTableContainer input{
+    width: 100%;
+  }

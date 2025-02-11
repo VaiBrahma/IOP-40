@@ -1,6 +1,14 @@
+.superContainer{
+    height: 120px;
+    width: 100vw;
+    /* border: 2px solid red; */
+    position: fixed;
+    top:0;
+    z-index: 100;
+}
+
 .container{
     width: 100vw;
-    height: 15%;
     background-color: var(--black);
     color: var(--light-white);
     display: flex;

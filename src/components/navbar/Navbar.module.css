@@ -1,6 +1,14 @@
+.superContainer{
+    height: 120px;
+    width: 100vw;
+    /* border: 2px solid red; */
+    position: fixed;
+    top:0;
+    z-index: 2;
+}
+
 .container{
     width: 100vw;
-    height: 15%;
     background-color: var(--black);
     color: var(--light-white);
     display: flex;
@@ -11,7 +19,7 @@
     position: sticky;
     top: 0;
     z-index: 1;
-    transition: all ease-in-out 0.5s;
+    transition: all ease-in-out 0s;
 }
 
 .iitrLogo{

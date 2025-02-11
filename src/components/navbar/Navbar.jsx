@@ -19,11 +19,7 @@ const Navbar = () => {
     };
 
     const handleScroll = () => {
-        if (window.scrollY > 50) {
-          setNavHeight(50);
-        } else {
-          setNavHeight(120);
-        }
+        setNavHeight(120 - Math.min(window.scrollY, 70));
     };
 
     handleResize();
@@ -39,12 +35,14 @@ const Navbar = () => {
 
   return (
 
-    <div className={styles.container} style={{height: `${navHeight}px`}}>
-        <div className={styles.iitrLogo}>
-            <a href="https://www.iitr.ac.in"><img src="/images/iitrlogo.png" style={{height:"100%"}} alt="O" /></a>
-        </div>
-        <div className={styles.title}>{title}</div>
-        {!vis ? <FaBars size={30} className={styles.hamburger} onClick={()=>{setVis(e=>!e)}}/> : <FaTimes size={30} className={styles.hamburger} onClick={()=>{setVis(e=>!e)}}/> }
+    <div className={styles.superContainer}>
+      <div className={styles.container} style={{height: `${navHeight}px`}}>
+          <div className={styles.iitrLogo}>
+              <a href="https://www.iitr.ac.in"><img src="/images/iitrlogo.png" style={{height:"100%"}} alt="O" /></a>
+          </div>
+          <div className={styles.title}>{title}</div>
+          {!vis ? <FaBars size={30} className={styles.hamburger} onClick={()=>{setVis(e=>!e)}}/> : <FaTimes size={30} className={styles.hamburger} onClick={()=>{setVis(e=>!e)}}/> }
+      </div>
     </div>
     
   );

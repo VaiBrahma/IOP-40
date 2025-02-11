@@ -4,3 +4,21 @@
     width: 80vw;
     margin: auto;
 }
+
+.bttn{
+    width: 80vw;
+    height: 3rem;
+    font-size: 1.2rem;
+    margin: 2rem;
+}
+
+.bttn:hover{
+    background-color: var(--dark-blue);
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -7,7 +7,7 @@ const FormInput = () => {
   const formData = useSelector((state) => state.form);
 
   const handleChange = (e) => {
-    dispatch(updateFormData({ [e.target.name]: e.target.value }));
+    dispatch(updateFormData({ [e.target.name]: parseFloat(e.target.value) }));
   };
 
   const handleSubmit = (e) => {
@@ -82,8 +82,6 @@ const FormInput = () => {
             </div>
           </div>
         </div>
-
-        <button type="submit" className={`${styles.bttn} btn`}>Calculate</button>
       </form>
     </div>
   );

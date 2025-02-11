@@ -23,3 +23,53 @@
     height: 150px;
     /* border: 1px solid blue; */
 }
+
+.card input{
+    background-color: var(--light-white);
+    border-radius: 2px;
+    color: var(--black);
+    font-size: 0.8rem;
+    height: 1.5rem;
+    margin: 0;  
+    width: 100px;
+}
+
+.E, .V, .Pmec, .Xt, .X1, .X2, .H, .f, .tStep, .faultTime, .clearTime {
+    position: absolute;
+}
+
+.E{
+    left: 15px;
+    bottom: 110px
+}
+
+.V{
+    right: 20px;
+    bottom: 140px;
+}
+
+.Xt{
+    bottom: 130px;
+    left: 140px;
+}
+
+.X1{
+    bottom: 195px;
+    right: 115px;
+}
+.X2{
+    bottom: 90px;
+    right: 115px;
+}
+.Pmec{
+    top: 25px;
+    right: 25px;
+}
+.H{
+    top: 25px;
+    left: 25px;
+}
+.f{
+    top: 70px;
+    left: 30px;
+}

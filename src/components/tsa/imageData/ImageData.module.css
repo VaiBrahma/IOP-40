@@ -1,0 +1,76 @@
+.card{
+    /* width: 80vw; */
+    background-color: white;
+    border-radius: 16px;
+    /* border: 1px solid green; */
+    margin: 10px;
+    box-shadow: #0000002a 0 0 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 4rem 0.5rem;
+    height: 414px;
+    width: 564px;
+}
+
+.container{
+    width: 100%;
+    /* border: 1px solid red; */
+}
+
+.card img{
+    height: 150px;
+    /* border: 1px solid blue; */
+}
+
+.card input{
+    background-color: var(--light-white);
+    border-radius: 2px;
+    color: var(--black);
+    font-size: 0.8rem;
+    height: 1.5rem;
+    margin: 0;  
+    width: 100px;
+}
+
+.E, .V, .Pmec, .Xt, .X1, .X2, .H, .f, .tStep, .faultTime, .clearTime {
+    position: absolute;
+}
+
+.E{
+    left: 15px;
+    bottom: 135px
+}
+
+.V{
+    right: 20px;
+    bottom: 170px;
+}
+
+.Xt{
+    bottom: 145px;
+    left: 140px;
+}
+
+.X1{
+    bottom: 215px;
+    right: 115px;
+}
+.X2{
+    bottom: 110px;
+    right: 115px;
+}
+.Pmec{
+    top: 25px;
+    right: 25px;
+}
+.H{
+    top: 25px;
+    left: 25px;
+}
+.f{
+    top: 70px;
+    left: 30px;
+}

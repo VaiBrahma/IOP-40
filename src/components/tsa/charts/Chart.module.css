@@ -1,0 +1,25 @@
+.container{
+    width: 95vw;
+    height: 70vw;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 16px;
+    box-shadow: #0000002a 0 0 8px;
+    padding: 25px;
+    max-height: 720px;
+    max-width: 1020px;
+    padding-top: 5px;
+    margin-top: 75px;
+}
+
+.title{
+    font-weight: bold;
+    /* border: 1px solid red; */
+    width: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+    border-bottom: 2px solid var(--black);
+}

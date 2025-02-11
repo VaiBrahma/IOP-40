@@ -1,21 +1,17 @@
 import './App.css'
 import { Provider } from 'react-redux';
 import Background from './components/background/Background'
-import BusData from './components/busData/BusData'
-import LineData from './components/lineData/LineData'
-import Navbar from './components/navbar/Navbar'
 import store from './redux/store';
-import RunButton from './components/runButton/RunButton';
+import FDLF from './pages/fdlf/FDLF';
+import TSA from './pages/tsa/TSA';
 
 function App() {
 
   return (
     <Provider store={store}>
       <Background/>
-      <Navbar/>
-      <BusData/>
-      <LineData/>
-      <RunButton/>
+      <FDLF/>
+      {/* <TSA/> */}
       <div className="empty"></div>
     </Provider>
   )

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './BusData.module.css';
-import { autofillFiveBusNetwork, autofillFourteenBusNetwork, initializeBusData } from '../../utils/fast-decoupled-power-flow/busData';
+import { autofillFiveBusNetwork, autofillFourteenBusNetwork, initializeBusData } from '../../utils/fdlf/busData';
 import { useDispatch } from 'react-redux';
 import { setBusesMatrix } from '../../redux/slices/busesSlice';
 

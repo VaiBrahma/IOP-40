@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import styles from './YMatrix.module.css';
-import { convertFromReduxCompatible } from '../../utils/fast-decoupled-power-flow/reduxConversion';
-import { formatComplexNumber } from '../../utils/fast-decoupled-power-flow/calculation';
+import { convertFromReduxCompatible } from '../../utils/fdlf/reduxConversion';
+import { formatComplexNumber } from '../../utils/fdlf/calculation';
 
 const YMatrix = () => {
   let { Ybus } = useSelector(state => state.yMatrix);

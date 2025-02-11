@@ -1,0 +1,33 @@
+.bttn {
+    width: 80vw;
+    height: 3rem;
+    font-size: 1.2rem;
+    margin: 2rem;
+}
+
+.bttn:hover {
+    background-color: var(--dark-blue);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 120px;
+}
+
+.con{
+    /* border: 1px solid red; */
+    width: 80vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@media (max-width: 1020px){
+    .con, .bttn{
+        width: 95vw;
+    }
+}

@@ -1,6 +1,6 @@
 import './App.css'
 import { Provider } from 'react-redux';
-import Background from './components/Background/Background'
+import Background from './components/background/Background'
 import BusData from './components/busData/BusData'
 import LineData from './components/lineData/LineData'
 import Navbar from './components/navbar/Navbar'

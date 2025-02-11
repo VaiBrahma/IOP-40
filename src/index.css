@@ -54,6 +54,11 @@ body{
     --font-paragraph: 1rem;
     --font-small: 0.875rem;
   }
+
+  .tableContainer{
+      overflow-x: auto;
+      white-space: nowrap;
+  }
 }
 
 .btn{

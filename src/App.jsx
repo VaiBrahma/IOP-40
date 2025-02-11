@@ -10,8 +10,8 @@ function App() {
   return (
     <Provider store={store}>
       <Background/>
-      {/* <FDLF/> */}
-      <TSA/>
+      <FDLF/>
+      {/* <TSA/> */}
       <div className="empty"></div>
     </Provider>
   )

@@ -58,5 +58,5 @@ export const tsa = (formData) => {
             del[n + 1] = del[n] + ((180 / Math.PI) * (k1dd + k2dd)) / 2;
         }
 
-    return {Pme, P, PeFault, PePost, del};
+    return {Pme, P, PeFault, PePost, del, d, tt, swingCurve};
 }

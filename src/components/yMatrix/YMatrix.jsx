@@ -1,24 +1,34 @@
+import { useSelector } from 'react-redux';
 import styles from './YMatrix.module.css';
+import { convertFromReduxCompatible } from '../../utils/fast-decoupled-power-flow/reduxConversion';
+import { formatComplexNumber } from '../../utils/fast-decoupled-power-flow/calculation';
 
-const YMatrix = ({ YBus }) => {
+const YMatrix = () => {
+  let { Ybus } = useSelector(state => state.yMatrix);
+  const title = "Y-Bus";
+
+  Ybus = convertFromReduxCompatible(Ybus);
+
   return (
     <div className={styles.container}>
-      <div className={styles.tableContainer}>
-        <table>
-          <thead>
+      <h2>{title}</h2>
+
+      <div className={`tableContainer`}>
+      <table>
+        <thead>
             <tr>
               <th></th>
-              {YBus.map((_, index) => (
-                <th key={index}>{index + 1}</th>
+              {Ybus[0]?.map((_, colIndex) => (
+                <th key={colIndex}>{colIndex + 1}</th>
               ))}
             </tr>
           </thead>
           <tbody>
-            {YBus.map((row, i) => (
-              <tr key={i}>
-                <th>{i + 1}</th>
-                {row.map((cell, j) => (
-                  <td key={j}>{formatComplexNumber(cell, 4)}</td>
+            {Ybus.map((row, rowIndex) => (
+              <tr key={rowIndex}>
+                <td><strong>{rowIndex + 1}</strong></td>
+                {row.map((cell, colIndex) => (
+                  <td key={colIndex}>{formatComplexNumber(cell, 2)}</td>
                 ))}
               </tr>
             ))}

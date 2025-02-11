@@ -4,14 +4,10 @@ import Background from './components/Background/Background'
 import BusData from './components/busData/BusData'
 import LineData from './components/lineData/LineData'
 import Navbar from './components/navbar/Navbar'
-import YMatrix from './components/yMatrix/YMatrix'
 import store from './redux/store';
+import RunButton from './components/runButton/RunButton';
 
 function App() {
-
-  const handleClick = () => {
-    
-  }
 
   return (
     <Provider store={store}>
@@ -19,8 +15,7 @@ function App() {
       <Navbar/>
       <BusData/>
       <LineData/>
-      <div className="btn runbtn" onClick={handleClick}>Run Power Flow</div>
-      {/* <YMatrix/> */}
+      <RunButton/>
       <div className="empty"></div>
     </Provider>
   )

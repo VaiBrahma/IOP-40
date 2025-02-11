@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './LineData.module.css';
 import { autofillSixLines, autofillTwentyLines, initializeLineData } from '../../utils/fast-decoupled-power-flow/lineData';
+import { useDispatch } from 'react-redux';
+import { setLinesMatrix } from '../../redux/slices/linesSlice';
 
 const LineData = () => {
 
@@ -10,14 +12,20 @@ const LineData = () => {
   const [inputValue, setInputValue] = useState(6);
   const [flag, setFlag] = useState(false);
   const title = "Line Data";
+  const dispatch = useDispatch();
+
 
   const handleAutofillSixLines = () => {
-    setLines(autofillSixLines());
+    let tempData = autofillSixLines();
+    setLines(tempData);
+    dispatch(setLinesMatrix(tempData));
     setWhichData(1);
   }
 
   const handleAutofillTwentyLines = () => {
-    setLines(autofillTwentyLines());
+    let tempData = autofillTwentyLines();
+    setLines(tempData);
+    dispatch(setLinesMatrix(tempData));
     setWhichData(2);
 
   }
@@ -31,6 +39,13 @@ const LineData = () => {
     setNumLines(inputValue);
     setLines(initializeLineData(inputValue));
     setWhichData(3);
+  };
+
+  const handleLineInputChange = (index, key, value) => {
+    const updatedLines = [...lines];
+    updatedLines[index] = { ...updatedLines[index], [key]: value };
+    setLines(updatedLines);
+    dispatch(setLinesMatrix(updatedLines));
   };
 
   return (
@@ -100,12 +115,12 @@ const LineData = () => {
                   {[...Array(numLines)].map((_, index) => (
                     <tr key={index}>
                       <td>{index + 1}.</td>
-                      <td><input type="number" min={1} onChange={(e)=>{lines[index].from = parseInt(e.target.value)}} /></td>
-                      <td><input type="number" min={1} onChange={(e)=>{lines[index].to = parseInt(e.target.value)}} /></td>
-                      <td><input type="number" step="0.001" onChange={(e)=>{lines[index].R = parseFloat(e.target.value)}} /></td>
-                      <td><input type="number" step="0.001" onChange={(e)=>{lines[index].X = parseFloat(e.target.value)}} /></td>
-                      <td><input type="number" step="0.001" onChange={(e)=>{lines[index].charging = parseFloat(e.target.value)}} /></td>
-                      <td><input type="number" step="0.001" onChange={(e)=>{lines[index].Tap = parseFloat(e.target.value)}} /></td>
+                      <td><input type="number" min={1} onChange={(e)=> handleLineInputChange(index, "from", parseInt(e.target.value))} /></td>
+                      <td><input type="number" min={1} onChange={(e)=> handleLineInputChange(index, "to", parseInt(e.target.value))} /></td>
+                      <td><input type="number" step="0.001" onChange={(e)=> handleLineInputChange(index, "R", parseFloat(e.target.value))} /></td>
+                      <td><input type="number" step="0.001" onChange={(e)=> handleLineInputChange(index, "X", parseFloat(e.target.value))} /></td>
+                      <td><input type="number" step="0.001" onChange={(e)=> handleLineInputChange(index, "charging", parseFloat(e.target.value))} /></td>
+                      <td><input type="number" step="0.001" onChange={(e)=> handleLineInputChange(index, "Tap", parseFloat(e.target.value))} /></td>
                     </tr>
                   ))}
                 </>

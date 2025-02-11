@@ -26,8 +26,8 @@ body{
   --font-subheading: 1.8rem;
   --font-paragraph: 1.125rem;
   --font-small: 1rem;
-  --line-height-heading: 1.3;
-  --line-height-paragraph: 1.6;
+  --line-height-heading: 1.3rem;
+  --line-height-paragraph: 1.6rem;
 
   --black: #181D2A;
   --light-white: #E8EBED;
@@ -114,6 +114,6 @@ body{
   background-color: #f9f9f9;
 }
 
-.busTableContainer input{
+.tableContainer input{
   width: 100%;
 }

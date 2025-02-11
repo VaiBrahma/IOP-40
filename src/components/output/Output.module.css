@@ -28,7 +28,18 @@
 }
 
 @media (max-width: 1020px){
-    .container{
+    .container, .block{
         width: 95vw;
     }   
+
+}
+
+h2{
+    margin-bottom: 1rem;
+}
+
+.block{
+    width: 80vw;
+    margin: auto;
+    line-height: 2rem;
 }

@@ -1,24 +1,31 @@
 import { useState } from 'react';
 import styles from './BusData.module.css';
 import { autofillFiveBusNetwork, autofillFourteenBusNetwork, initializeBusData } from '../../utils/fast-decoupled-power-flow/busData';
+import { useDispatch } from 'react-redux';
+import { setBusesMatrix } from '../../redux/slices/busesSlice';
 
 const BusData = () => {
 
-  const [buses, setBuses] = useState([{V: -1}]);
+  const [buses, setBuses] = useState([]);
   const [flag, setFlag] = useState(false);
   const [whichData, setWhichData] = useState(1);
   const [busNo, setBusNo] = useState(5);
   const [inputValue, setInputValue] = useState(5);
   const title = "Bus Data";
+  const dispatch = useDispatch();
 
   const handleAutofillFiveBusNetwork = () => {
-    setBuses(autofillFiveBusNetwork());
+    let tempData = autofillFiveBusNetwork();
+    setBuses(tempData);
+    dispatch(setBusesMatrix(tempData));
     setWhichData(1);
     // console.log(buses);
   }
 
   const handelAutofillFourteenBusNetwork = () => {
-    setBuses(autofillFourteenBusNetwork());
+    let tempData = autofillFourteenBusNetwork();
+    setBuses(tempData);
+    dispatch(setBusesMatrix(tempData));
     setWhichData(2);
     // console.log(buses);
   }
@@ -35,6 +42,12 @@ const BusData = () => {
     setWhichData(3);
     // console.log(inputValue);
   };
+
+  const handleInputChange = (index, key, value) => {
+    const updatedBuses = [...buses];
+    updatedBuses[index] = { ...updatedBuses[index], [key]: value };
+    dispatch(setBusesMatrix(updatedBuses));
+};
 
   return (
     <div className={styles.container}>
@@ -95,16 +108,16 @@ const BusData = () => {
             <>
               {[...Array(busNo)].map((_, index) => (
               <tr key={index}>
-                <td>{index + 1}.</td>
-                <td><input type="number" min={1} max={3} onChange={(e)=>{buses[index].type = parseInt(e.target.value)}} /></td>
-                <td><input type="number" step="0.001" onChange={(e)=>{buses[index].V = parseFloat(e.target.value)}} /></td>
-                <td><input type="number" step="0.001" onChange={(e)=>{buses[index].angle = parseFloat(e.target.value)}} /></td>
-                <td><input type="number" step="0.001" onChange={(e)=>{buses[index].Pg = parseFloat(e.target.value)}} /></td>
-                <td><input type="number" step="0.001" onChange={(e)=>{buses[index].Qg = parseFloat(e.target.value)}} /></td>
-                <td><input type="number" step="0.001" onChange={(e)=>{buses[index].PL = parseFloat(e.target.value)}} /></td>
-                <td><input type="number" step="0.001" onChange={(e)=>{buses[index].QL = parseFloat(e.target.value)}} /></td>
-                <td><input type="number" step="0.001" onChange={(e)=>{buses[index].Qmin = parseFloat(e.target.value)}} /></td>
-                <td><input type="number" step="0.001" onChange={(e)=>{buses[index].Qmax = parseFloat(e.target.value)}} /></td>
+                <td>{index + 1}.</td>   
+                <td><input type="number" min={1} max={3} onChange={(e)=> handleInputChange(index, "type", parseInt(e.target.value))} /></td>
+                <td><input type="number" step="0.001" onChange={(e)=> handleInputChange(index, "V", parseFloat(e.target.value))} /></td>
+                <td><input type="number" step="0.001" onChange={(e)=> handleInputChange(index, "angle", parseFloat(e.target.value))} /></td>
+                <td><input type="number" step="0.001" onChange={(e)=> handleInputChange(index, "Pg", parseFloat(e.target.value))} /></td>
+                <td><input type="number" step="0.001" onChange={(e)=> handleInputChange(index, "Qg", parseFloat(e.target.value))} /></td>
+                <td><input type="number" step="0.001" onChange={(e)=> handleInputChange(index, "PL", parseFloat(e.target.value))} /></td>
+                <td><input type="number" step="0.001" onChange={(e)=> handleInputChange(index, "QL", parseFloat(e.target.value))} /></td>
+                <td><input type="number" step="0.001" onChange={(e)=> handleInputChange(index, "Qmin", parseFloat(e.target.value))} /></td>
+                <td><input type="number" step="0.001" onChange={(e)=> handleInputChange(index, "Qmax", parseFloat(e.target.value))} /></td>
               </tr>
             ))}
             </>

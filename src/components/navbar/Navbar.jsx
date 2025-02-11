@@ -41,7 +41,7 @@ const Navbar = () => {
 
     <div className={styles.container} style={{height: `${navHeight}px`}}>
         <div className={styles.iitrLogo}>
-            <a href="https://www.iitr.ac.in"><img src="/src/assets/images/iitrlogo.png" style={{height:"100%"}} alt="O" /></a>
+            <a href="https://www.iitr.ac.in"><img src="/images/iitrlogo.png" style={{height:"100%"}} alt="O" /></a>
         </div>
         <div className={styles.title}>{title}</div>
         {!vis ? <FaBars size={30} className={styles.hamburger} onClick={()=>{setVis(e=>!e)}}/> : <FaTimes size={30} className={styles.hamburger} onClick={()=>{setVis(e=>!e)}}/> }

@@ -5,7 +5,7 @@ const Background = () => {
     <div className={styles.container}>
         {/* <div className={styles.topbar}></div> */}
         <div className={`${styles.imgg} centralizeContent`}>
-            <img src='/src/assets/images/circuit.png' className={styles.centreImg}/>
+            <img src='/images/circuit.png' className={styles.centreImg}/>
         </div>
     </div>
   );

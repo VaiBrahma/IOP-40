@@ -34,7 +34,8 @@ const LineData = () => {
     setInputValue(Number(e.target.value));
   }
 
-  const generateLineTable = () => { 
+  const generateLineTable = (event) => { 
+    event.preventDefault();
     setFlag(e => !e);
     setNumLines(inputValue);
     setLines(initializeLineData(inputValue));
@@ -65,8 +66,10 @@ const LineData = () => {
         {flag && 
         <div className={styles.overlay}>
           <div className={styles.modal}>
-            <input type="number" id="numLines" className={styles.lineno} placeholder='Enter the number of Lines' onChange={handleLineNumChange} min={1} defaultValue={inputValue}/>
-            <button className={`${styles.sub} btn`} onClick={generateLineTable}>Sumbit</button>
+            <form action="" onSubmit={generateLineTable}>
+              <input type="number" id="numLines" className={styles.lineno} placeholder='Enter the number of Lines' onChange={handleLineNumChange} min={1} defaultValue={inputValue}/>
+              <button className={`${styles.sub} btn`} type='submit'>Sumbit</button>
+            </form>
           </div>
         </div>}
 

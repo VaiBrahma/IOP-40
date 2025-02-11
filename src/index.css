@@ -117,3 +117,9 @@ body{
 .tableContainer input{
   width: 100%;
 }
+
+input{
+  border: none;
+  padding: 8px;
+  background-color: var(--light-white);
+}

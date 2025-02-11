@@ -35,7 +35,8 @@ const BusData = () => {
     // console.log(busNo);
   }
 
-  const handleGenerateBusTable = () => { 
+  const handleGenerateBusTable = (event) => { 
+    event.preventDefault();
     setFlag(e => !e);
     setBusNo(inputValue);
     setBuses(initializeBusData(inputValue));
@@ -66,8 +67,10 @@ const BusData = () => {
         {flag && 
         <div className={styles.overlay}>
           <div className={styles.modal}>
-            <input type="number" id="numBuses" className={styles.busno} onChange={handleBusNoChange} defaultValue={inputValue} min={1} max={11} placeholder='Enter the number of Buses'/>
-            <button className={`${styles.sub} btn`} onClick={handleGenerateBusTable}>Sumbit</button>
+            <form action="" onSubmit={handleGenerateBusTable}>
+              <input type="number" id="numBuses" className={styles.busno} onChange={handleBusNoChange} defaultValue={inputValue} min={1} max={11} placeholder='Enter the number of Buses'/>
+              <button type="submit" className={`${styles.sub} btn`}>Sumbit</button>
+            </form>
           </div>
         </div>}
 

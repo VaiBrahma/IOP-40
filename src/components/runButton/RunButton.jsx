@@ -75,8 +75,8 @@ const RunButton = () => {
     <>
       <div className={styles.container}>
         <form onSubmit={handleSubmit}>
-          <input type="number" placeholder='Tolerance' step={0.0001} min={0} onChange={(e) => setTolerance(parseFloat(e.target.value))}/>
-          <input type="number" placeholder='Max. Iteration' min={1} onChange={(e) => setMaxItr(parseInt(e.target.value))}/>
+          <input type="number" placeholder={`Tolerance: ${tolerance}`} step={0.0001} min={0} onChange={(e) => setTolerance(parseFloat(e.target.value))}/>
+          <input type="number" placeholder={`Max. Iteration: ${maxItr}`} min={1} onChange={(e) => setMaxItr(parseInt(e.target.value))}/>
           <div className={styles.line}></div>
           <button type="submit" className={`btn ${styles.runbtn}`}>Run Power Flow</button>
         </form>

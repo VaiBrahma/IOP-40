@@ -3,18 +3,18 @@ import styles from './Navbar.module.css';
 import {FaBars, FaTimes } from "react-icons/fa";
 
 
-const Navbar = () => {
+const Navbar = ({title1, title2}) => {
     const [vis, setVis] = useState(false);
-    const [title, setTitle] = useState("IOP-40: Transient Stability Analysis");
+    const [title, setTitle] = useState(title1);
     const [navHeight, setNavHeight] = useState(120);
 
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 650) {
-        setTitle("IOP-40: FDLF");
+        setTitle(title2);
       }else {
-        setTitle("IOP-40: Fast Decoupled Load Flow");
+        setTitle(title1);
       }
     };
 

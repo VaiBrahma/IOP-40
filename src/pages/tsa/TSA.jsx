@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { useState, useRef } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import FaultData from "../../components/tsa/faultData/FaultData.jsx";
-import SystemData from "../../components/tsa/systemData/systemData.jsx";
+import SystemData from "../../components/tsa/systemData/SystemData.jsx";
 import styles from "./TSA.module.css";
 import { tsa } from "../../utils/tsa/tsa";
 import Chart1 from "../../components/tsa/charts/Chart1";

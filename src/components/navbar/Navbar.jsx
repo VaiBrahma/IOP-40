@@ -12,9 +12,9 @@ const Navbar = () => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 650) {
-        setTitle("IOP-40: TSA");
+        setTitle("IOP-40: FDLF");
       }else {
-        setTitle("IOP-40: Transient Stability Analysis");
+        setTitle("IOP-40: Fast Decoupled Load Flow");
       }
     };
 

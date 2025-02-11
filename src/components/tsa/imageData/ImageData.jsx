@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import styles from './ImageInput.module.css';
+import styles from './ImageData.module.css';
 import { updateFormData } from '../../../redux/slices/formSlice';
 
-const ImageInput = () => {
+const ImageData = () => {
     const dispatch = useDispatch();
     const formData = useSelector((state) => state.form);
 
@@ -40,4 +40,4 @@ const ImageInput = () => {
     );
 };
 
-export default ImageInput;
+export default ImageData;

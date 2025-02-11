@@ -1,25 +1,29 @@
 import { useDispatch, useSelector } from "react-redux";
-import styles from "./FormInput.module.css";
+import styles from "./SystemData.module.css";
 import { updateFormData } from "../../../redux/slices/formSlice";
+import { SiNetflix } from "react-icons/si";
+import { useState } from "react";
+import ImageData from "../imageData/ImageData";
 
-const FormInput = () => {
+const SystemData = () => {
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.form);
+  const [flag, setFlag] = useState(false);
 
   const handleChange = (e) => {
     dispatch(updateFormData({ [e.target.name]: parseFloat(e.target.value) }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Submitted Data:", formData);
-  };
-
   return (
-    <div className={styles.container}>
-      <form id="stabilityForm" onSubmit={handleSubmit} className={styles.frm}>
-        <div className={styles.card}>
-          <h2>System Data</h2>
+    <div className={styles.card}>
+      <div className={styles.headerr}>
+          <div className={styles.title}>System Data</div>
+          <div className={styles.btns}>
+            <button className={`${styles.blu} btn`} onClick={()=>setFlag(e=>!e)}>{flag ? "Figure Input" : "Table Input"}</button>
+          </div>
+      </div>
+      {flag ? 
+        <>
           <div className={styles.grid}>
             <div className={styles.item1}>
               <label htmlFor="E">Generator Voltage (E, pu):</label>
@@ -61,30 +65,14 @@ const FormInput = () => {
               <input type="number" id="f" name="f" min="50" max="65" step="0.0001" value={formData.f} onChange={handleChange} required />
             </div>
           </div>
+        </>
+        :
+        <div className={styles.centre}>
+          <ImageData/>
         </div>
-
-        <div className={styles.card}>
-          <h2>Fault Data</h2>
-          <div className={styles.grid}>
-            <div className={styles.item1}>
-              <label htmlFor="tStep">Time Step (s):</label>
-              <input type="number" id="tStep" name="tStep" step="0.01" value={formData.tStep} onChange={handleChange} required />
-            </div>
-
-            <div className={styles.item2}>
-              <label htmlFor="faultTime">Fault Occurrence Time (s):</label>
-              <input type="number" id="faultTime" name="faultTime" step="0.01" value={formData.faultTime} onChange={handleChange} required />
-            </div>
-
-            <div className={styles.item1}>
-              <label htmlFor="clearTime">Fault Clearing Time (s):</label>
-              <input type="number" id="clearTime" name="clearTime" step="0.01" value={formData.clearTime} onChange={handleChange} required />
-            </div>
-          </div>
-        </div>
-      </form>
+      }
     </div>
   );
 };
 
-export default FormInput;
+export default SystemData;

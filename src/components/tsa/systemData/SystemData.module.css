@@ -30,10 +30,8 @@
     justify-content: space-between;
     align-items: center;
     margin: 8px;
-}
-
-.item2{
-    background-color: var(--white);
+    padding: 2px;
+    border-bottom: 1px solid var(--light-white);
 }
 
 .grid input {
@@ -58,4 +56,22 @@
 
 .bttn:active {
     transform: scale(0.99);
+}
+
+.headerr{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    /* border: 2px solid; */
+    border-bottom: 1.5px solid var(--light-white);
+    padding: 20px 0;
+}   
+
+.title{
+    font-weight: bold;
+    font-size: var(--font-subheading);
+}
+
+.blu:hover{
+    background-color: var(--dark-blue);
 }

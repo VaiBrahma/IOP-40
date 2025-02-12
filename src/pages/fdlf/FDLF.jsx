@@ -6,7 +6,7 @@ import RunButton from "../../components/runButton/RunButton"
 const FDLF = () => {
   return (
     <div>
-        <Navbar title1 = {"IOP-40: Fast Decoupled Power Flow"} title2 = {"IOP-40: FDLF"}/>
+        <Navbar title1 = {"IOP-40: Fast Decoupled Load Flow"} title2 = {"IOP-40: FDLF"}/>
         <BusData/>
         <LineData/>
         <RunButton/>

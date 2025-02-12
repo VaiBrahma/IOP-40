@@ -1,0 +1,66 @@
+.container{
+    /* border: 1px solid red; */
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.title{
+    /* border: 1px solid red;  */
+    background: url('/images/iitrlogo.png') no-repeat center center/cover;
+    background-size: 85%;
+    height: 250px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(1.2 * var(--font-heading));
+    font-weight: bold;
+    padding: 15px;
+}
+
+.buttonContainer{
+    /* border: 1px solid red;*/
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+}
+
+.buttonContainer .btn{
+    width: 100%;
+    /* border: 1px solid blue; */
+    background-color: var(--black);
+    color: var(--light-white);
+    text-decoration: none;
+    text-align: center;
+    padding: 40px 80px;
+    margin: 8px;
+    border-radius: 15px;
+    font-weight: bold;
+}
+.proff p{
+    font-weight: bold;
+}
+
+.role{
+    color: #888;
+}
+
+.footer{
+    display: flex;
+    /* border: 2px solid red; */
+    width: 100vw;
+    justify-content: space-around;
+}   
+
+@media (max-width: 1020px){
+    .buttonContainer{
+        width: 85vw;
+        flex-direction: column;
+    }
+}

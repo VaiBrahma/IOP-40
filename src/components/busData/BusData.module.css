@@ -21,6 +21,9 @@
     /* border: 2px solid; */
     border-bottom: 1.5px solid var(--light-white);
     padding: 2.5px;
+    /* border: 1px solid red; */
+    height: 70px;
+    align-items: center;
 }   
 
 .title{

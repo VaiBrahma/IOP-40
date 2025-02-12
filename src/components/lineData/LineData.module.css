@@ -20,6 +20,8 @@
     /* border: 2px solid; */
     border-bottom: 1.5px solid var(--light-white);
     padding: 2.5px;
+    height: 70px;
+    align-items: center;
 }   
 
 .title{

@@ -1,6 +1,6 @@
 .container{
     /* border: 1px solid red; */
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -25,7 +25,7 @@
 .buttonContainer{
     /* border: 1px solid red;*/
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 60vw;
@@ -42,6 +42,11 @@
     margin: 8px;
     border-radius: 15px;
     font-weight: bold;
+    box-shadow: #000000 0 0 4px;
+}
+
+.buttonContainer .btn:active{
+    transform: scale(0.99);
 }
 .proff p{
     font-weight: bold;
@@ -54,13 +59,19 @@
 .footer{
     display: flex;
     /* border: 2px solid red; */
-    width: 100vw;
     justify-content: space-around;
+    width: 80vw;
 }   
 
 @media (max-width: 1020px){
     .buttonContainer{
         width: 85vw;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 500px){
+    .footer{
         flex-direction: column;
     }
 }

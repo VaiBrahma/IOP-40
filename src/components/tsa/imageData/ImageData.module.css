@@ -15,9 +15,11 @@
     width: 564px;
 }
 
-/* .container{
+.container{
     width: 80vw;
-} */
+    /* border: 1px solid red; */
+    overflow: auto;
+}
 
 .card img{
     height: 150px;

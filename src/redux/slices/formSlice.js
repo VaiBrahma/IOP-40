@@ -9,7 +9,7 @@ const initialState = {
   X2: 0.93,
   H: 3.5,
   f: 60,
-  tStep: 0.0005,
+  tStep: 0.005,
   faultTime: 1,
   clearTime: 0.085,
 };

@@ -1,29 +1,27 @@
-.container{
+.backgroundContainer {
     background-color: var(--light-white);
     position: fixed;
-    top:0;
+    top: 0;
     height: 100vh;
     width: 100vw;
     z-index: -1000;
+    overflow: hidden;
 }
 
-.topbar{
-    width: 100vw;
-    height: 20%;
-    background-color: var(--black);
-    min-height: 100px;
-    position: fixed;
-    top: 0;
-    z-index: -1000;
-}
-
-.imgg{
+.imgWrapper {
     position: fixed;
     bottom: 0;
     width: 100vw;
-    height: 60%;
-}       
+    height: 60vh;
+    will-change: transform;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-.centreImg{
+.fixedImg {
     height: 100%;
+    width: auto;
+    object-fit: cover;
+    transform: translateZ(0);
 }

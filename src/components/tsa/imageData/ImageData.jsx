@@ -17,12 +17,12 @@ const ImageData = () => {
     }, []);
 
     const updateScale = () => {
-        const scaleFactor = Math.min(1, window.innerWidth / 800); // Keeping max scale as 1
+        const scaleFactor = Math.min(1, window.innerWidth / 800);
         setScale(scaleFactor);
     };
 
     useEffect(() => {
-        updateScale(); // Set initial scale
+        updateScale();
         window.addEventListener('resize', updateScale);
         return () => window.removeEventListener('resize', updateScale);
     }, []);

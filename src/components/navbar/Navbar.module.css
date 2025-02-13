@@ -36,8 +36,9 @@
 }
 
 .hamburger{
-    margin: 0px 10px;
     cursor: pointer;
+    z-index: 50;
+    margin-right: 20px;
 }
 
 .hamburger:active{

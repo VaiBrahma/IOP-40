@@ -19,6 +19,9 @@
     width: 80vw;
     /* border: 1px solid red; */
     overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card img{

@@ -1,10 +1,25 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 import styles from './ImageData.module.css';
 import { updateFormData } from '../../../redux/slices/formSlice';
 
 const ImageData = () => {
     const dispatch = useDispatch();
     const formData = useSelector((state) => state.form);
+    const [scale, setScale] = useState(1);
+
+    // Function to update scale based on window width
+    const updateScale = () => {
+        const scaleFactor = Math.min(1, window.innerWidth / 800); // Keeping max scale as 1
+        setScale(scaleFactor);
+    };
+
+    // Set up event listener on mount and cleanup on unmount
+    useEffect(() => {
+        updateScale(); // Set initial scale
+        window.addEventListener('resize', updateScale);
+        return () => window.removeEventListener('resize', updateScale);
+    }, []);
 
     const handleChange = (e) => {
         dispatch(updateFormData({ [e.target.name]: parseFloat(e.target.value) }));
@@ -12,7 +27,7 @@ const ImageData = () => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.card}>
+            <div className={styles.card} style={{ transform: `scale(${scale})`, transformOrigin: 'top center' }}>
                 <img src="/images/Withoutfault.png" alt="circuit" />
                 
                 <input type="number" id="E" name="E" min="1" max="2" step="0.0001" value={formData.E} onChange={handleChange} placeholder="E" className={styles.E} required />

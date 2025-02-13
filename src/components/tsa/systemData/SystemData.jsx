@@ -19,10 +19,10 @@ const SystemData = () => {
       <div className={styles.headerr}>
           <div className={styles.title}>System Data</div>
           <div className={styles.btns}>
-            <button className={`${styles.blu} btn`} onClick={()=>setFlag(e=>!e)}>{flag ? "Figure Input" : "Table Input"}</button>
+            <button className={`${styles.blu} btn`} onClick={()=>setFlag(e=>!e)}>{!flag ? "Figure Input" : "Table Input"}</button>
           </div>
       </div>
-      {flag ? 
+      {!flag ? 
         <>
           <div className={styles.grid}>
             <div className={styles.item1}>

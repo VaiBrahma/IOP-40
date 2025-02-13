@@ -11,14 +11,13 @@
     align-items: center;
     position: relative;
     padding: 4rem 0.5rem;
-    height: 414px;
+    height: 285px;
     width: 564px;
 }
 
-.container{
-    width: 100%;
-    /* border: 1px solid red; */
-}
+/* .container{
+    width: 80vw;
+} */
 
 .card img{
     height: 150px;
@@ -39,38 +38,42 @@
     position: absolute;
 }
 
-.E{
-    left: 15px;
-    bottom: 135px
+.E {
+    left: 3%;
+    top: 66%;
 }
 
-.V{
-    right: 20px;
-    bottom: 170px;
+.V {
+    right: 4%;
+    top: 55%;
 }
 
-.Xt{
-    bottom: 145px;
-    left: 140px;
+.Xt {
+    top: 62%;
+    left: 25%;
 }
 
-.X1{
-    bottom: 215px;
-    right: 115px;
+.X1 {
+    top: 42%;
+    right: 20%;
 }
-.X2{
-    bottom: 110px;
-    right: 115px;
+
+.X2 {
+    top: 75%;
+    right: 20%;
 }
-.Pmec{
-    top: 25px;
-    right: 25px;
+
+.Pmec {
+    top: 5%;
+    right: 5%;
 }
-.H{
-    top: 25px;
-    left: 25px;
+
+.H {
+    top: 5%;
+    left: 5%;
 }
-.f{
-    top: 70px;
-    left: 30px;
+
+.f {
+    top: 15%;
+    left: 6.2%;
 }

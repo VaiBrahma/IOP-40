@@ -16,10 +16,18 @@ const Home = () => {
       <div className={styles.footer}>
         <div className={styles.teamName}>
           <h2>Submitted By: </h2>
-            <li>Palak Tripathi</li>
-            <li>Vaibhav Singh</li>
+          <table>
+            <tbody>
+              <tr><td><li>Palak Tripathi</li></td><td>---------------</td></tr>
+              <tr><td><li>Vaibhav Singh</li></td><td>22112111</td></tr>
+              <tr><td><li>Garv</li></td><td>---------------</td></tr>
+              <tr><td><li>Vaibhav Kumar</li></td><td>22115157</td></tr>
+            </tbody>
+          </table>
+            {/* <li>Palak Tripathi</li>
+            
             <li>Garv</li>
-            <li>Vaibhav Kumar</li>
+            <li>Vaibhav Kumar</li> */}
         </div>
 
         <div className={styles.proff}>

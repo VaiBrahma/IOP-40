@@ -21,13 +21,15 @@ const RunButton = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  
+    
     let { Ybus, Ybus1 } = calculateYbus(buses, liness);
     Ybus = convertToReduxCompatible(Ybus);
     Ybus1 = convertToReduxCompatible(Ybus1);
-  
+    
     dispatch(setYMatrix({ Ybus, Ybus1 }));
-  
+    
+    // console.log(buses);
+
     let busess = structuredClone(buses);
     const powerFlowResults = runLoadFlow(
       busess, 
@@ -37,8 +39,7 @@ const RunButton = () => {
       convertFromReduxCompatible(Ybus), 
       convertFromReduxCompatible(Ybus1)
     );
-  
-    // console.log(powerFlowResults);
+    
   
     setResults(powerFlowResults);
     setFlag(true);

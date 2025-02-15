@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from './BusData.module.css';
 import { autofillFiveBusNetwork, autofillFourteenBusNetwork, initializeBusData } from '../../utils/fdlf/busData';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setBusesMatrix } from '../../redux/slices/busesSlice';
 
 const BusData = () => {
@@ -39,8 +39,11 @@ const BusData = () => {
     event.preventDefault();
     setFlag(e => !e);
     setBusNo(inputValue);
-    setBuses(initializeBusData(inputValue));
+    let temp = initializeBusData(inputValue);
+    setBuses(temp);
+    dispatch(setBusesMatrix(temp));
     setWhichData(3);
+    // console.log(temp);
     // console.log(inputValue);
   };
 
@@ -48,6 +51,8 @@ const BusData = () => {
     const updatedBuses = [...buses];
     updatedBuses[index] = { ...updatedBuses[index], [key]: value };
     dispatch(setBusesMatrix(updatedBuses));
+    setBuses(updatedBuses);
+    // console.log(updatedBuses);
 };
 
   return (

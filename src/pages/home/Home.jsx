@@ -32,7 +32,8 @@ const Home = () => {
 
         <div className={styles.proff}>
           <h2>Under the Guidance of: </h2>
-          <p>Dr. Abdul Saleem Mir</p>
+          <a href="https://www.iitr.ac.in/~EE/Abdul_Saleem_Mir">Dr. Abdul Saleem Mir</a>
+          <p></p>
           <div className={styles.role}>Assistant Professor</div>
           <div>Department of Electrical Engineering</div>
           <div>Indian Institute of Technology Roorkee</div>

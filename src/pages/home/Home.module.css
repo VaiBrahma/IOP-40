@@ -48,8 +48,14 @@
 .buttonContainer .btn:active{
     transform: scale(0.99);
 }
-.proff p{
+.proff a{
     font-weight: bold;
+    text-decoration: none;
+    color: var(--black);
+}
+
+.proff a:hover{
+    color: #888;
 }
 
 .role{

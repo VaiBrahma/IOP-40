@@ -1,7 +1,7 @@
-import BusData from "../../components/busData/BusData"
-import LineData from "../../components/lineData/LineData"
+import BusData from "../../components/fdlf/busData/BusData"
+import LineData from "../../components/fdlf/lineData/LineData"
 import Navbar from "../../components/navbar/Navbar"
-import RunButton from "../../components/runButton/RunButton"
+import RunButton from "../../components/fdlf/runButton/RunButton"
 
 const FDLF = () => {
   return (

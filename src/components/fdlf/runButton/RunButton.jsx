@@ -1,10 +1,10 @@
 import { useRef, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import styles from './RunButton.module.css';
-import { calculateYbus } from "../../utils/fdlf/yBus";
-import { setYMatrix } from "../../redux/slices/yMatrixSlice";
-import { convertFromReduxCompatible, convertToReduxCompatible } from "../../utils/fdlf/reduxConversion";
-import { runLoadFlow } from '../../utils/fdlf/calculation';
+import { calculateYbus } from "../../../utils/fdlf/yBus";
+import { setYMatrix } from "../../../redux/slices/yMatrixSlice";
+import { convertFromReduxCompatible, convertToReduxCompatible } from "../../../utils/fdlf/reduxConversion";
+import { runLoadFlow } from '../../../utils/fdlf/calculation';
 import Output from '../output/Output';
 
 const RunButton = () => {

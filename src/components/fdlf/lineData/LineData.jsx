@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import styles from './LineData.module.css';
-import { autofillSixLines, autofillTwentyLines, initializeLineData } from '../../utils/fdlf/lineData';
+import { autofillSixLines, autofillTwentyLines, initializeLineData } from '../../../utils/fdlf/lineData';
 import { useDispatch } from 'react-redux';
-import { setLinesMatrix } from '../../redux/slices/linesSlice';
+import { setLinesMatrix } from '../../../redux/slices/linesSlice';
 
 const LineData = () => {
 

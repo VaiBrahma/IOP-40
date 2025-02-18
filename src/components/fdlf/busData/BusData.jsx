@@ -3,11 +3,13 @@ import styles from './BusData.module.css';
 import { autofillFiveBusNetwork, autofillFourteenBusNetwork, initializeBusData } from '../../../utils/fdlf/busData';
 import { useDispatch, useSelector } from 'react-redux';
 import { setBusesMatrix } from '../../../redux/slices/busesSlice';
+import FileInput from '../../fileInput/FileInput';
 
 const BusData = () => {
 
   const [buses, setBuses] = useState([]);
   const [flag, setFlag] = useState(false);
+  const [flag2, setFlag2] = useState(false);
   const [whichData, setWhichData] = useState(1);
   const [busNo, setBusNo] = useState(5);
   const [inputValue, setInputValue] = useState(5);
@@ -55,6 +57,10 @@ const BusData = () => {
     // console.log(updatedBuses);
 };
 
+const handleFileUpload = () => {
+  setFlag2(true);
+}
+
   return (
     <div className={styles.container}>
         {flag && <div className={styles.cover}></div>}
@@ -64,7 +70,7 @@ const BusData = () => {
           <div className={styles.btns}>
             <button className={`${styles.blu} btn`} onClick={handleAutofillFiveBusNetwork}>IEEE 5-Bus</button>
             <button className={`${styles.blu} btn`} onClick={handelAutofillFourteenBusNetwork}>IEEE 14-Bus</button>
-            <button className={`${styles.grn} btn`}>Upload XLSX</button>
+            <button className={`${styles.grn} btn`} onClick={handleFileUpload}>Upload XLSX</button>
             <button className={`${styles.rd} btn`} onClick={()=>{setFlag(e=>!e)}}>Manually Add Data</button>
           </div>
         </div>
@@ -133,6 +139,11 @@ const BusData = () => {
           </tbody>
         </table>
       </div>
+      {flag2 && 
+      <>
+        <FileInput/>
+      </>
+      }
 
     </div>
   );

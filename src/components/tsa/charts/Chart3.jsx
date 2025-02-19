@@ -26,9 +26,9 @@ const Chart2 = ({ result }) => {
                     }}
                 >
                     <CartesianGrid strokeDasharray="0" opacity={0.5} vertical={false} />
-                    <XAxis dataKey="time" tickLine={false} label={{ value: "Time (sec)", position: "insideBottom", offset: -10 }} />
+                    <XAxis dataKey="time" tickLine={false}  label={{ value: "Time (sec)", position: "insideBottom", offset: -10 }} />
                     <YAxis tickLine={false} tickCount={8} label={{ value: "Speed (rad/s)", angle: -90, position: "insideLeft" }} domain={[-0.014, 0.014]}/>
-                    <Tooltip position={{y:-70}} wrapperStyle={{color: "var(--black)"}}/>
+                    <Tooltip labelFormatter={(label) => `Time: ${label}`} position={{y:-70}} wrapperStyle={{color: "var(--black)"}}/>
                     <Legend wrapperStyle={{ bottom: -10, right: 0 }} />
                     <Line type="monotone" dataKey="speed" stroke="#7F5A83" dot={false} />
                 </LineChart>

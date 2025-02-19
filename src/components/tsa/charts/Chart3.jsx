@@ -35,7 +35,7 @@ const Chart2 = ({ result }) => {
                 >
                     <CartesianGrid strokeDasharray="0" opacity={0.5} vertical={false} />
                     <XAxis dataKey="del" tickLine={false} label={{ value: "Delta (degree)", position: "insideBottom", offset: -10 }} />
-                    <YAxis tickLine={false} label={{ value: "Speed (red/s)", angle: -90, position: "insideLeft" }} domain={[-0.014, 0.014]}/>
+                    <YAxis tickLine={false} label={{ value: "Speed (rad/s)", angle: -90, position: "insideLeft" }} domain={[-0.014, 0.014]}/>
                     <Tooltip />
                     <Legend wrapperStyle={{ bottom: -10, right: 0 }} />
                     <Line type="monotone" dataKey="speed" stroke="#7F5A83" dot={false} />

@@ -18,21 +18,14 @@ const Chart1 = ({reff, result}) => {
             <h2>P-{'\u03B4'} curve</h2>
         </div>
         <ResponsiveContainer width="100%" height={400}>
-        <LineChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
+
+        <LineChart width={500} height={300} data={data} margin={{ top: 5,right: 30,left: 20,bottom: 5,
           }}
         >
           <CartesianGrid strokeDasharray="0" opacity={0.5} vertical={false}/>
           <XAxis dataKey="LoadAngle" tickLine={false} tickCount={5} tickFormatter={(number)=>{return `${number}°`}} label={{ value: "Load Angle (degree)", position: "insideBottom", offset: -10 }} />
           <YAxis tickLine={false} tickCount={6} label={{ value: "Power (p.u.)", angle: -90, position: "insideLeft"}}/>
-          <Tooltip />
+          <Tooltip position={{y:-160}} wrapperStyle={{color: "var(--black)"}}/>
           <Legend wrapperStyle={{ bottom: -10, right: 0}}/>
           <Line type="monotone" dataKey="Pmechanical" stroke="#9966FF" dot={false} />
           <Line type="monotone" dataKey="PreFault" stroke="#36A2EB" dot={false} />

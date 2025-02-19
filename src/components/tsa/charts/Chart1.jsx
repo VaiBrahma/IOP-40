@@ -17,7 +17,7 @@ const Chart1 = ({reff, result}) => {
         <div className={styles.title}>
             <h2>P-{'\u03B4'} curve</h2>
         </div>
-        <ResponsiveContainer width="100%" height="80%">
+        <ResponsiveContainer width="100%" height={400}>
         <LineChart
           width={500}
           height={300}
@@ -29,15 +29,15 @@ const Chart1 = ({reff, result}) => {
             bottom: 5,
           }}
         >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="LoadAngle" label={{ value: "Load Angle (degree)", position: "insideBottom", offset: -10 }}/>
-          <YAxis label={{ value: "Power (p.u.)", angle: -90, position: "insideLeft"}}/>
+          <CartesianGrid strokeDasharray="0" opacity={0.5} vertical={false}/>
+          <XAxis dataKey="LoadAngle" tickLine={false} tickCount={5} tickFormatter={(number)=>{return `${number}°`}} label={{ value: "Load Angle (degree)", position: "insideBottom", offset: -10 }} />
+          <YAxis tickLine={false} tickCount={6} label={{ value: "Power (p.u.)", angle: -90, position: "insideLeft"}}/>
           <Tooltip />
           <Legend wrapperStyle={{ bottom: -10, right: 0}}/>
-          <Line type="monotone" dataKey="Pmechanical" stroke="#1E1E1E" dot={false} />
-          <Line type="monotone" dataKey="PreFault" stroke="#3478F6" dot={false} />
-          <Line type="monotone" dataKey="DuringFault" stroke="#E63946" dot={false} />
-          <Line type="monotone" dataKey="PostFault" stroke="#2A9D8F" dot={false} />
+          <Line type="monotone" dataKey="Pmechanical" stroke="#9966FF" dot={false} />
+          <Line type="monotone" dataKey="PreFault" stroke="#36A2EB" dot={false} />
+          <Line type="monotone" dataKey="DuringFault" stroke="#FF6B6B" dot={false} />
+          <Line type="monotone" dataKey="PostFault" stroke="#2ECC71" dot={false} />
         </LineChart>
       </ResponsiveContainer>
     </div>

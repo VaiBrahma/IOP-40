@@ -7,6 +7,7 @@ import styles from "./TSA.module.css";
 import { tsa } from "../../utils/tsa/tsa";
 import Chart1 from "../../components/tsa/charts/Chart1";
 import Chart2 from "../../components/tsa/charts/Chart2";
+import Chart3 from "../../components/tsa/charts/Chart3";
 
 const TSA = () => {
     const formData = useSelector(state => state.form);
@@ -63,6 +64,7 @@ const TSA = () => {
                 <>
                     <Chart1 reff={chart1Ref} result={result} />
                     <Chart2 result={result} />
+                    <Chart3 result={result} />
                 </>
             )}
         </div>

@@ -19,7 +19,7 @@ export const tsa = (formData) => {
             const Ppostmax = (E * V / Xpost);
 
             const swingCurve = Math.asin(Pmec/Ppremax) * (180/3.14);
-            console.log("criticalAngle:", swingCurve);
+            // console.log("criticalAngle:", swingCurve);
 
 
  // Parameters
@@ -58,5 +58,5 @@ export const tsa = (formData) => {
             del[n + 1] = del[n] + ((180 / Math.PI) * (k1dd + k2dd)) / 2;
         }
 
-    return {Pme, P, PeFault, PePost, del, d, tt, swingCurve};
+    return {Pme, P, PeFault, PePost, d, wr, del, tt, swingCurve, Pmax};
 }

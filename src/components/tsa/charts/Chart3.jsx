@@ -3,17 +3,23 @@ import styles from './Chart.module.css'
 
 const Chart2 = ({ result }) => {
 
-    let maxVal = Math.max(...result.del) + 3 || 120;
+    let mapping = new Map();
+    result.del.forEach((value, index) => {
+        mapping.set(value, result.wr[index]);
+    });
 
-    const data = result.del.map((value, index) => ({
-        Delta: value.toFixed(4),
-        time: result.tt[index].toFixed(4)
+    let sortedDelta = [...mapping.keys()].sort((x, y) => x - y);
+    let sortedSpeed = sortedDelta.map(key => mapping.get(key));
+
+    const data = sortedDelta.map((value, index) => ({
+        speed: sortedSpeed[index].toFixed(4),
+        del: value.toFixed(4)
     }));
 
     return (
         <div className={styles.container}>
             <div className={styles.title}>
-                <h2>Swing Curve</h2>
+                <h2>Speed Vs Delta</h2>
             </div>
             <ResponsiveContainer width="100%" height={400}>
                 <LineChart
@@ -28,11 +34,11 @@ const Chart2 = ({ result }) => {
                     }}
                 >
                     <CartesianGrid strokeDasharray="0" opacity={0.5} vertical={false} />
-                    <XAxis dataKey="time" tickFormatter={(number) => {return `${Number.parseFloat(number).toFixed(2)}`}} tickLine={false} label={{ value: "Time (sec)", position: "insideBottom", offset: -10 }} />
-                    <YAxis tickFormatter={(value) => (value === maxVal ? "" : value.toFixed(0))}  tickLine={false} tickCount={10} label={{ value: "Load Angle (degree)", angle: -90, position: "insideLeft" }} domain={[0, maxVal]}/>
+                    <XAxis dataKey="del" tickLine={false} label={{ value: "Delta (degree)", position: "insideBottom", offset: -10 }} />
+                    <YAxis tickLine={false} label={{ value: "Speed (red/s)", angle: -90, position: "insideLeft" }} domain={[-0.014, 0.014]}/>
                     <Tooltip />
                     <Legend wrapperStyle={{ bottom: -10, right: 0 }} />
-                    <Line type="monotone" dataKey="Delta" stroke="#F39C12" dot={false} />
+                    <Line type="monotone" dataKey="speed" stroke="#7F5A83" dot={false} />
                 </LineChart>
             </ResponsiveContainer>
         </div>

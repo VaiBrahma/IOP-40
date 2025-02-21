@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import styles from './FileInput.module.css';
 import * as XLSX from 'xlsx';
+import { useDispatch } from 'react-redux';
+import { setBusesMatrix } from '../../redux/slices/busesSlice';
+import { setLinesMatrix } from '../../redux/slices/linesSlice';
 
-const FileInput = () => {
+const FileInput = ({setFlag2, type}) => {
+
+  const dispatch = useDispatch();
   const [file, setFile] = useState(null);
   const [data, setData] = useState(null);
 
@@ -26,7 +31,12 @@ const FileInput = () => {
       const sheetData = XLSX.utils.sheet_to_json(sheet);
 
       setData(sheetData);
+      dispatch(type==1 ? setBusesMatrix(sheetData) : setLinesMatrix(sheetData));
+      // console.log(data);
     };
+
+
+    if(file) setFlag2(false);
     reader.readAsBinaryString(file);
   };
 
@@ -35,8 +45,13 @@ const FileInput = () => {
       <div className={styles.overlay}>
         <div className={styles.modal}>
           <form onSubmit={handleSubmit}>
-            <input type="file" onChange={handleFileChange} />
-            <button type="submit" className={`${styles.sub} btn`}>Submit</button>
+            <div className={styles.empty}>
+              <button onClick={()=> setFlag2(false)} className={styles.close}>  X </button>
+            </div>
+            <div className={styles.flx}>
+              <input placeholder='select file' type="file" onChange={handleFileChange} className={styles.inp}/>
+              <button type="submit" className={`${styles.sub} btn`}>Submit</button>
+            </div>
           </form>
         </div>
       </div>

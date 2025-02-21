@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './BusData.module.css';
 import { autofillFiveBusNetwork, autofillFourteenBusNetwork, initializeBusData } from '../../../utils/fdlf/busData';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,7 +7,7 @@ import FileInput from '../../fileInput/FileInput';
 
 const BusData = () => {
 
-  const [buses, setBuses] = useState([]);
+  const [buses, setBuses] = useState(useSelector(state=>state.buses));
   const [flag, setFlag] = useState(false);
   const [flag2, setFlag2] = useState(false);
   const [whichData, setWhichData] = useState(1);
@@ -15,6 +15,7 @@ const BusData = () => {
   const [inputValue, setInputValue] = useState(5);
   const title = "Bus Data";
   const dispatch = useDispatch();
+  
 
   const handleAutofillFiveBusNetwork = () => {
     let tempData = autofillFiveBusNetwork();
@@ -141,7 +142,7 @@ const handleFileUpload = () => {
       </div>
       {flag2 && 
       <>
-        <FileInput/>
+        <FileInput setFlag2={setFlag2} type={1}/>
       </>
       }
 

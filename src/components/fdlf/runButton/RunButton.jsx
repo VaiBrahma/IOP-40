@@ -28,7 +28,8 @@ const RunButton = () => {
     
     dispatch(setYMatrix({ Ybus, Ybus1 }));
     
-    // console.log(buses);
+    console.log(buses);
+    console.log(liness);
 
     let busess = structuredClone(buses);
     const powerFlowResults = runLoadFlow(

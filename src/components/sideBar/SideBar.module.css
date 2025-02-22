@@ -1,11 +1,16 @@
 .btn{
     text-decoration: none;
     color: var(--light-white);
-    margin: 20px 0;
+    margin: 8px 0;
+    padding: 15px 5px;
+    text-align: center;
+    border-radius: 8px;
 }
 
 .btn:hover{
     font-weight: bold;
+    /* outline: 1px solid #262d3c; */
+    background-color: #222836;
 }
 
 .btn:active{
@@ -17,15 +22,15 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    width: 90px;
+    width: 110px;
     right: 0;
     background-color: var(--black);
     top: 0;
     z-index: 10;
     border-radius: 25px 0 0 25px;
     border-left: 1px solid var(--light-white);
-    padding: 25px;
-    padding-top: 80px;
+    padding: 10px;
+    padding-top: 100px;
     transition: transform 0.4s ease-in-out;
     animation: slideIn 0.4s ease-in-out;
 }

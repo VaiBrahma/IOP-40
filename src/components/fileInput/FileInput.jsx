@@ -5,11 +5,13 @@ import { useDispatch } from 'react-redux';
 import { setBusesMatrix } from '../../redux/slices/busesSlice';
 import { setLinesMatrix } from '../../redux/slices/linesSlice';
 
-const FileInput = ({setFlag2, type}) => {
+const FileInput = ({setFlag2, type, setMatrix}) => {
 
   const dispatch = useDispatch();
   const [file, setFile] = useState(null);
   const [data, setData] = useState(null);
+
+  const title = ["", "Enter Bus Data: ", "Enter Line Data: "];
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -31,6 +33,7 @@ const FileInput = ({setFlag2, type}) => {
       const sheetData = XLSX.utils.sheet_to_json(sheet);
 
       setData(sheetData);
+      setMatrix(sheetData);
       dispatch(type==1 ? setBusesMatrix(sheetData) : setLinesMatrix(sheetData));
       // console.log(data);
     };
@@ -46,6 +49,7 @@ const FileInput = ({setFlag2, type}) => {
         <div className={styles.modal}>
           <form onSubmit={handleSubmit}>
             <div className={styles.empty}>
+              <p className={styles.title}>{title[type]}</p>
               <button onClick={()=> setFlag2(false)} className={styles.close}>  X </button>
             </div>
             <div className={styles.flx}>

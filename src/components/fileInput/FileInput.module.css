@@ -24,6 +24,7 @@
     padding: 2rem;
     transform: scale(0.9);
     animation: scaleUp 0.3s ease-out forwards;
+    padding-top: 0.5rem;
 }
 
 .inp{
@@ -42,16 +43,20 @@
     padding: 15px;
 }
 
+.title{
+    color: var(--light-white);
+    /* border: 1px solid green; */
+}
+
 .empty{
     width: 100%;
     position: relative;
     /* border: 1px solid red; */
-    height: 10px;
 }
 
 .close{
     position: absolute;
-    top: -28px;
+    top: 0px;
     right: -28px;
     color: var(--light-white);
     background-color: var(--black);

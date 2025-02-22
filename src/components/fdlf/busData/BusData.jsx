@@ -16,6 +16,7 @@ const BusData = () => {
   const title = "Bus Data";
   const dispatch = useDispatch();
   
+  // console.log(buses);
 
   const handleAutofillFiveBusNetwork = () => {
     let tempData = autofillFiveBusNetwork();
@@ -29,8 +30,6 @@ const BusData = () => {
     let tempData = autofillFourteenBusNetwork();
     setBuses(tempData);
     dispatch(setBusesMatrix(tempData));
-    setWhichData(2);
-    // console.log(buses);
   }
 
   const handleBusNoChange = (e) => {
@@ -92,33 +91,24 @@ const handleFileUpload = () => {
             <tr><th>Bus No.</th><th>Bus Type</th><th>Voltage (pu)</th><th>Angle (degree)</th><th>P<sub>gen</sub> (pu)</th><th>Q<sub>gen</sub> (pu)</th><th>P<sub>load</sub> (pu)</th><th>Q<sub>load</sub> (pu)</th><th>Q<sub>min</sub> (pu)</th><th>Q<sub>max</sub> (pu)</th></tr>
           </thead>
           <tbody>
-            {whichData === 1 &&
-            <>
-              <tr><td>1.</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-              <tr><td>2.</td><td>2</td><td>1</td><td>0</td><td>0.5</td><td>0</td><td>0</td><td>0</td><td>-5</td><td>5</td></tr>
-              <tr><td>3.</td><td>2</td><td>1</td><td>0</td><td>1.0</td><td>0</td><td>0</td><td>0</td><td>-0.5</td><td>0.5</td></tr>
-              <tr><td>4.</td><td>3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1.15</td><td>0.6</td><td>0</td><td>0</td></tr>
-              <tr><td>5.</td><td>3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0.85</td><td>0.4</td><td>0</td><td>0</td></tr>
-            </>
-            }
-            {whichData === 2 &&
-            <>
-              <tr><td>1.</td><td>1</td><td>1.06</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-              <tr><td>2.</td><td>2</td><td>1.045</td><td>0</td><td>0.183</td><td>0.05857</td><td>0</td><td>0</td><td>-5</td><td>5</td></tr>
-              <tr><td>3.</td><td>3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1.19</td><td>0.08762</td><td>0</td><td>0</td></tr>
-              <tr><td>4.</td><td>3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0.4779</td><td>0.039</td><td>0</td><td>0</td></tr>
-              <tr><td>5.</td><td>3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0.07599</td><td>0.01599</td><td>0</td><td>0</td></tr>
-              <tr><td>6.</td><td>2</td><td>1.07</td><td>0</td><td>0.112</td><td>0.442</td><td>0</td><td>0</td><td>-5</td><td>5</td></tr>
-              <tr><td>7.</td><td>3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-              <tr><td>8.</td><td>3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0.129</td><td>0</td><td>0</td></tr>
-              <tr><td>9.</td><td>3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0.29499</td><td>0.16599</td><td>0</td><td>0</td></tr>
-              <tr><td>10.</td><td>3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0.09</td><td>0.05799</td><td>0</td><td>0</td></tr>
-              <tr><td>11.</td><td>3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0.03501</td><td>0.018</td><td>0</td><td>0</td></tr>
-              <tr><td>12.</td><td>3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0.06099</td><td>0.01599</td><td>0</td><td>0</td></tr>
-              <tr><td>13.</td><td>3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0.135</td><td>0.05799</td><td>0</td><td>0</td></tr>
-              <tr><td>14.</td><td>3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0.14901</td><td>0.05001</td><td>0</td><td>0</td></tr>
-            </>
-            }
+          {whichData === 1 && (
+              <>
+                {buses.map((bus, index) => (
+                  <tr key={index}>
+                    <td>{index + 1}.</td>   
+                    <td>{bus.type}</td>
+                    <td>{bus.V}</td>
+                    <td>{bus.angle}</td>
+                    <td>{bus.Pg}</td>
+                    <td>{bus.Qg}</td>
+                    <td>{bus.PL}</td>
+                    <td>{bus.QL}</td>
+                    <td>{bus.Qmin}</td>
+                    <td>{bus.Qmax}</td>
+                  </tr>
+                ))}
+              </>
+            )}
             {whichData === 3 &&
             <>
               {[...Array(busNo)].map((_, index) => (
@@ -142,7 +132,7 @@ const handleFileUpload = () => {
       </div>
       {flag2 && 
       <>
-        <FileInput setFlag2={setFlag2} type={1}/>
+        <FileInput setFlag2={setFlag2} type={1} setMatrix={setBuses}/>
       </>
       }
 

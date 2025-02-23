@@ -19,11 +19,11 @@ const Chart1 = ({reff, result}) => {
         </div>
         <ResponsiveContainer width="100%" height={400}>
 
-        <LineChart width={500} height={300} data={data} margin={{ top: 5,right: 30,left: 20,bottom: 5,
+        <LineChart width={500} height={300} data={data} margin={{ top: 0,right: 30,left: 20,bottom: 25,
           }}
         >
           <CartesianGrid strokeDasharray="0" opacity={0.5} vertical={false}/>
-          <XAxis dataKey="LoadAngle" tickLine={false} tickCount={5} tickFormatter={(number)=>{return `${number}°`}} label={{ value: "Load Angle (degree)", position: "insideBottom", offset: -10 }} />
+          <XAxis dataKey="LoadAngle" tickLine={false} tickCount={5} tickFormatter={(number)=>{return `${number}°`}} label={{ value: "Load Angle (degree)", position: "insideBottom", offset: -20 }} />
           <YAxis tickLine={false} tickCount={6} label={{ value: "Power (p.u.)", angle: -90, position: "insideLeft"}}/>
           <Tooltip labelFormatter={(label) => `${'\u03B4'}: ${label}`} position={{y:-160}} wrapperStyle={{color: "var(--black)"}}/>
           <Legend wrapperStyle={{ bottom: -10, right: 0}}/>

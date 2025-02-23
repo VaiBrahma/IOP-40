@@ -21,14 +21,14 @@ const Chart2 = ({ result }) => {
                     height={300}
                     data={data}
                     margin={{
-                        top: 5,
+                        top: 0,
                         right: 30,
                         left: 20,
-                        bottom: 5,
+                        bottom: 25,
                     }}
                 >
                     <CartesianGrid strokeDasharray="0" opacity={0.5} vertical={false} />
-                    <XAxis dataKey="time" tickFormatter={(number) => {return `${Number.parseFloat(number).toFixed(2)}`}} tickLine={false} label={{ value: "Time (sec)", position: "insideBottom", offset: -10 }} />
+                    <XAxis dataKey="time" tickFormatter={(number) => {return `${Number.parseFloat(number).toFixed(2)}`}} tickLine={false} label={{ value: "Time (sec)", position: "insideBottom", offset: -20 }} />
                     <YAxis tickFormatter={(value) => (value === maxVal ? "" : value.toFixed(0))}  tickLine={false} tickCount={10} label={{ value: "Load Angle (degree)", angle: -90, position: "insideLeft" }} domain={[0, maxVal]}/>
                     <Tooltip labelFormatter={(label) => `Time: ${label}`} position={{y:-70}} wrapperStyle={{color: "var(--black)"}}/>
                     <Legend wrapperStyle={{ bottom: -10, right: 0 }} />

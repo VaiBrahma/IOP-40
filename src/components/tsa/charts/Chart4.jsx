@@ -27,7 +27,7 @@ const Chart4 = ({ result }) => {
                         domain={[minX, maxX]} 
                         tickLine={false}  
                         tickCount={15}
-                        label={{ value: "Delta", position: "insideBottom", offset: -10 }} 
+                        label={{ value: "Delta (degree)", position: "insideBottom", offset: -20 }} 
                         tickFormatter={(tick) => tick.toFixed(2)}
                     />
                     <YAxis 
@@ -36,7 +36,7 @@ const Chart4 = ({ result }) => {
                         domain={[minY, maxY]} 
                         tickLine={false} 
                         tickCount={8}
-                        label={{ value: "Speed", angle: -90, position: "insideLeft", offset: -15 }} 
+                        label={{ value: "Speed (rad/s)", angle: -90, position: "insideLeft", offset: -15 }} 
                         tickFormatter={(tick) => tick.toFixed(4)}
                     />
                     <Tooltip />

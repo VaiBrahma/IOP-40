@@ -22,12 +22,12 @@ const Chart2 = ({ result }) => {
                         top: 5,
                         right: 30,
                         left: 20,
-                        bottom: 5,
+                        bottom: 25,
                     }}
                 >
                     <CartesianGrid strokeDasharray="0" opacity={0.5} vertical={false} />
-                    <XAxis dataKey="time" tickLine={false}  label={{ value: "Time (sec)", position: "insideBottom", offset: -10 }} />
-                    <YAxis tickLine={false} tickCount={8} label={{ value: "Speed (rad/s)", angle: -90, position: "insideLeft" }} domain={[-0.014, 0.014]}/>
+                    <XAxis dataKey="time" tickLine={false}  label={{ value: "Time (sec)", position: "insideBottom", offset: -20 }} />
+                    <YAxis tickLine={false} tickCount={8} label={{ value: "Speed (rad/s)", angle: -90, position: "insideLeft", offset: -15 }} domain={[-0.014, 0.014]}/>
                     <Tooltip labelFormatter={(label) => `Time: ${label}`} position={{y:-70}} wrapperStyle={{color: "var(--black)"}}/>
                     <Legend wrapperStyle={{ bottom: -10, right: 0 }} />
                     <Line type="monotone" dataKey="speed" stroke="#7F5A83" dot={false} />

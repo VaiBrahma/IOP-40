@@ -1,48 +1,73 @@
-import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import styles from './Chart.module.css';
+import { Scatter } from "react-chartjs-2";
+import { Chart as ChartJS, LinearScale, PointElement, Tooltip } from "chart.js";
+import styles from "./Chart.module.css";
+
+ChartJS.register(LinearScale, PointElement, Tooltip);
 
 const Chart4 = ({ result }) => {
+    const data = {
+        datasets: [
+            {
+                label: "Phasor Data",
+                data: result.del.map((value, index) => ({
+                    x: parseFloat(value.toFixed(2)),  
+                    y: parseFloat(result.wr[index].toFixed(4))
+                })),
+                backgroundColor: "#FF8C00",
+                pointRadius: 11,
+                pointHoverRadius: 5, 
+                pointHoverBorderColor: "#000", 
+                pointHoverBorderWidth: 2,
+            },
+        ],
+    };
 
-    const data = result.del.map((value, index) => ({
-        Delta: value.toFixed(2),  
-        Speed: result.wr[index].toFixed(4)
-    }));
-
-    const minX = Math.min(...data.map(d => d.Delta)) - 10;
-    const maxX = Math.max(...data.map(d => d.Delta)) + 10;
-    const minY = Math.min(...data.map(d => d.Speed)) - 0.005;
-    const maxY = Math.max(...data.map(d => d.Speed)) + 0.005;
+    const options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            x: {
+                type: "linear",
+                title: {
+                    display: true,
+                    text: "Delta (degree)",
+                },
+                ticks: {
+                    callback: (tick) => tick.toFixed(2),
+                },
+            },
+            y: {
+                title: {
+                    display: true,
+                    text: "Speed (rad/s)",
+                },
+                ticks: {
+                    callback: (tick) => tick.toFixed(4),
+                },
+            },
+        },
+        plugins: {
+            tooltip: {
+                enabled: true,
+                mode: "nearest",
+                position: "nearest",
+                yAlign: "bottom",
+                xAlign: "center",
+                caretPadding: 25,
+                caretSize: 10,
+                padding: 15,
+            },
+        },
+    };
 
     return (
         <div className={styles.container}>
             <div className={styles.title}>
                 <h2>Phasor Plot</h2>
             </div>
-            <ResponsiveContainer width="100%" height={400} className={styles.con}>
-                <ScatterChart width={500} height={400} margin={{ top: 0, right: 30, left: 30, bottom:25 }}>
-                    <CartesianGrid strokeDasharray="0" opacity={0.5} vertical={false} />
-                    <XAxis 
-                        type="number" 
-                        dataKey="Delta" 
-                        domain={[minX, maxX]} 
-                        tickLine={false}  
-                        tickCount={15}
-                        label={{ value: "Delta (degree)", position: "insideBottom", offset: -20 }} 
-                        tickFormatter={(tick) => tick.toFixed(2)}
-                    />
-                    <YAxis 
-                        type="number" 
-                        dataKey="Speed" 
-                        domain={[minY, maxY]} 
-                        tickLine={false} 
-                        tickCount={8}
-                        label={{ value: "Speed (rad/s)", angle: -90, position: "insideLeft", offset: -15 }} 
-                        tickFormatter={(tick) => tick.toFixed(4)}
-                    />
-                    <Tooltip />
-                    <Scatter name="Data Points" data={data} fill="#FF8C00" size={1}/>
-                </ScatterChart>
-            </ResponsiveContainer>
+            <div className={styles.chart} style={{cursor: "crosshair"}}>
+                <Scatter data={data} options={options} height={400} width={800} />
+            </div>
         </div>
     );
 };

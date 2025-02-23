@@ -27,6 +27,14 @@
     font-size: var(--font-subheading);
 }
 
+.charts{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (max-width: 1020px){
     .container, .block{
         width: 95vw;

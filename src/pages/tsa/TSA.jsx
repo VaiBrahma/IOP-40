@@ -8,6 +8,7 @@ import { tsa } from "../../utils/tsa/tsa";
 import Chart1 from "../../components/tsa/charts/Chart1";
 import Chart2 from "../../components/tsa/charts/Chart2";
 import Chart3 from "../../components/tsa/charts/Chart3";
+import Chart4 from "../../components/tsa/charts/Chart4.jsx";
 
 const TSA = () => {
     const formData = useSelector(state => state.form);
@@ -65,6 +66,7 @@ const TSA = () => {
                     <Chart1 reff={chart1Ref} result={result} />
                     <Chart2 result={result} />
                     <Chart3 result={result} />
+                    <Chart4 result={result} />
                 </>
             )}
         </div>

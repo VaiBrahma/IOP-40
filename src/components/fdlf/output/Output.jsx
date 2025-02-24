@@ -26,7 +26,7 @@ const Output = ({ iter, Vmag, delta, buses, lines, Pij, Qij, Pji, Qji, P_loss, Q
             <p className={styles.block}>Efficiency: {calcEff(TotalP_loss, PgenSum)}%</p>
             <div className={styles.charts}>
                 <VoltageChart Vmag={Vmag}/> 
-                <VoltageMap Vmag={Vmag}/>
+                {/* <VoltageMap Vmag={Vmag}/> */}
             </div>
         </>
     );

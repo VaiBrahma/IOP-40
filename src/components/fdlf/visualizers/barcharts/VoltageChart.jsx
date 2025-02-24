@@ -1,5 +1,6 @@
 import { XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, Rectangle, LabelList } from 'recharts';
 import styles from '../../../tsa/charts/Chart.module.css'
+import VoltageMap from '../heatmaps/VoltageMap';
 
 const VoltageChart = ({Vmag}) => {
 
@@ -9,10 +10,11 @@ const VoltageChart = ({Vmag}) => {
     }));
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={{height: "auto"}}>
         <div className={styles.title}>
             <h2>Bus Voltage</h2>
         </div>
+
         <ResponsiveContainer height={400}>
 
         <BarChart
@@ -36,7 +38,9 @@ const VoltageChart = ({Vmag}) => {
             <LabelList dataKey="Vmag" position="top" />
           </Bar>
         </BarChart>
-      </ResponsiveContainer>
+        </ResponsiveContainer>
+
+        <VoltageMap Vmag={Vmag}/>
     </div>
   )
 }

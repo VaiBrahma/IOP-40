@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import styles from './YMatrix.module.css';
 import { convertFromReduxCompatible } from '../../../utils/fdlf/reduxConversion';
 import { formatComplexNumber } from '../../../utils/fdlf/calculation';
+// import Ybuss from '../visualizers/heatmaps/Ybus.jsx'
 
 const YMatrix = () => {
   let { Ybus } = useSelector(state => state.yMatrix);
@@ -11,6 +12,7 @@ const YMatrix = () => {
 
   return (
     <div className={styles.container}>
+      {/* <Ybuss Ybu= {Ybus}/> */}
       <h2>{title}</h2>
 
       <div className={`tableContainer`}>

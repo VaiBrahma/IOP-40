@@ -1,6 +1,6 @@
 .voltageMapContainer {
-    width: 95vw;
-    /* background-color: var(--white); */
+    width: 100%;
+    background-color: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,36 +10,10 @@
     max-width: 1020px;
     margin-top: 75px;
     margin: auto;
-    padding: 16px 0;
+    padding: 16px;
+    /* border: 1px solid red; */
   }
-  
-  .legendContainer {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 10px;
-  }
-  
-  .legendItem {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .legendColor {
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
-  }
-  
-  .lowVoltage {
-    background-color: #7B3294;
-  }
-  
-  .nominalVoltage {
-    background-color: #2B83BA;
-  }
-  
-  .highVoltage {
-    background-color: #F46D43;
+
+  .chart{
+    width: 100%;
   }

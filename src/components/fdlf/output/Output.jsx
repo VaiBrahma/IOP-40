@@ -3,7 +3,9 @@ import styles from './Output.module.css'
 import PowerFlowTable from './PowerFlowTable';
 import YMatrix from '../yMatrix/YMatrix'
 import VoltageChart from '../visualizers/barcharts/VoltageChart';
-import VoltageMap from '../visualizers/heatmaps/VoltageMap';
+import Ybuss from '../visualizers/heatmaps/Ybus'
+import { useSelector } from 'react-redux';
+import { convertFromReduxCompatible } from '../../../utils/fdlf/reduxConversion';
 
 const Output = ({ iter, Vmag, delta, buses, lines, Pij, Qij, Pji, Qji, P_loss, Q_loss, TotalP_loss, TotalQ_loss }) => {
 
@@ -12,6 +14,9 @@ const Output = ({ iter, Vmag, delta, buses, lines, Pij, Qij, Pji, Qji, P_loss, Q
     const calcEff = (ploss, pgen) => {
         return ( (1 - ploss/ pgen) * 100).toFixed(2);
     }
+
+    let { Ybus } = useSelector(state => state.yMatrix);
+    Ybus = convertFromReduxCompatible(Ybus);
 
     return (
         <>  
@@ -26,7 +31,7 @@ const Output = ({ iter, Vmag, delta, buses, lines, Pij, Qij, Pji, Qji, P_loss, Q
             <p className={styles.block}>Efficiency: {calcEff(TotalP_loss, PgenSum)}%</p>
             <div className={styles.charts}>
                 <VoltageChart Vmag={Vmag}/> 
-                {/* <VoltageMap Vmag={Vmag}/> */}
+                <Ybuss Ybus={Ybus}/>
             </div>
         </>
     );

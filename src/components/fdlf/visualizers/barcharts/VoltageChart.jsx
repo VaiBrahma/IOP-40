@@ -29,14 +29,20 @@ const VoltageChart = ({Vmag}) => {
           }}
           barSize={40}
         >
-
           <CartesianGrid strokeDasharray="0" opacity={0.5} vertical={false}/>
-          <XAxis dataKey="busNo" tickLine={false} label={{ value: "Bus No.", position: "insideBottom", offset: -20 }} />
-          <YAxis tickLine={false} tickCount={6} label={{ value: "Voltage (p.u.)", angle: -90, position: "insideLeft"}} domain={[0, 1.25]}/>
-          {/* <Tooltip/> */}
-          <Bar dataKey="Vmag" fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="blue" />} background={{ fill: '#eee' }}>
-            <LabelList dataKey="Vmag" position="top" />
+          <XAxis dataKey="busNo" tickLine={false} label={{ position: "insideBottom", offset: -20 }} />
+          <YAxis tickLine={false} tickCount={6} label={{ value: "Voltage (p.u.)", angle: -90, position: "insideLeft"}} domain={[0, 1.25]} />
+
+          <Bar dataKey="Vmag" 
+            background={{ fill: '#eee' }}
+            shape={(props) => {
+              const { x, y, width, height, value } = props;
+              const color = value > 1.05 || value < 0.95 ? "#FF6B6B" : "#8884d8";
+              return <Rectangle x={x} y={y} width={width} height={height} fill={color} stroke="black" />;
+            }}>
+            <LabelList dataKey="Vmag" position="top" content={({ x, y, value }) => (<text x={x+18} y={y - 5} fill="black" textAnchor="middle" fontSize={12}>{Number(value).toFixed(2)}</text>)} />
           </Bar>
+
         </BarChart>
         </ResponsiveContainer>
 

@@ -40,7 +40,7 @@ const VoltageChart = ({Vmag}) => {
               const color = value > 1.05 || value < 0.95 ? "#FF6B6B" : "#8884d8";
               return <Rectangle x={x} y={y} width={width} height={height} fill={color} stroke="black" />;
             }}>
-            <LabelList dataKey="Vmag" position="top" content={({ x, y, value }) => (<text x={x+18} y={y - 5} fill="black" textAnchor="middle" fontSize={12}>{Number(value).toFixed(2)}</text>)} />
+            <LabelList dataKey="Vmag" position="top"/>
           </Bar>
 
         </BarChart>

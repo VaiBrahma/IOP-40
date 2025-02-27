@@ -6,10 +6,13 @@ import VoltageChart from '../visualizers/barcharts/VoltageChart';
 import Ybuss from '../visualizers/heatmaps/Ybus'
 import { useSelector } from 'react-redux';
 import { convertFromReduxCompatible } from '../../../utils/fdlf/reduxConversion';
+import LineLoadingChart from '../visualizers/barcharts/LineLoadingChart';
 
 const Output = ({ iter, Vmag, delta, buses, lines, Pij, Qij, Pji, Qji, P_loss, Q_loss, TotalP_loss, TotalQ_loss }) => {
 
     const PgenSum = buses.reduce((acc, obj) => acc + obj.Pg, 0);
+
+    const loadingData = [45.2, 62.8, 37.5, 78.1, 91.3, 54.7]; 
 
     const calcEff = (ploss, pgen) => {
         return ( (1 - ploss/ pgen) * 100).toFixed(2);
@@ -23,15 +26,24 @@ const Output = ({ iter, Vmag, delta, buses, lines, Pij, Qij, Pji, Qji, P_loss, Q
             <h2 className={styles.block}>Y-Bus Output</h2>
             <YMatrix/>
             <h2 className={styles.block}>Power Flow Output</h2>
-            <p className={styles.block}>Number of iterations: {iter}</p>
+
+            <div className={styles.eff}>
+                <p className={styles.block}>Number of iterations: {iter}</p>
+            </div>
+
             <PowerFlowTable Vmag={Vmag} delta={delta} buses={buses} />
             <LineFlowTable lines={lines} Pij={Pij} Qij={Qij} Pji={Pji} Qji={Qji} P_loss={P_loss} Q_loss={Q_loss} />
-            <p className={styles.block}>Total real power losses (pu): {TotalP_loss.toFixed(4)}</p>
-            <p className={styles.block}>Total reactive power losses (pu): {TotalQ_loss.toFixed(4)}</p>
-            <p className={styles.block}>Efficiency: {calcEff(TotalP_loss, PgenSum)}%</p>
+
+            <div className={styles.eff}>
+                <p className={styles.block}><span>Total real power losses (pu):</span> <span>{TotalP_loss.toFixed(4)}</span></p>
+                <p className={styles.block}><span>Total reactive power losses (pu):</span> <span>{TotalQ_loss.toFixed(4)}</span></p>
+                <p className={styles.block}><span>Efficiency:</span> <span>{calcEff(TotalP_loss, PgenSum)}%</span></p>
+            </div>
+
             <div className={styles.charts}>
                 <VoltageChart Vmag={Vmag}/> 
                 <Ybuss Ybus={Ybus}/>
+                <LineLoadingChart lines={lines}/>
             </div>
         </>
     );

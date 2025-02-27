@@ -78,7 +78,7 @@ const LineData = () => {
         <div className={`tableContainer`}>
           <table>
             <thead>
-              <tr><th>Line No.</th><th>From Bus</th><th>To Bus</th><th>R (pu)</th><th>X (pu)</th><th>B (pu)</th><th>Tx. Tap</th></tr>
+              <tr><th>Line No.</th><th>From Bus</th><th>To Bus</th><th>R (pu)</th><th>X (pu)</th><th>B (pu)</th><th>Tx. Tap</th><th>Smax</th></tr>
             </thead>
             <tbody>
               {whichData === 1 &&
@@ -92,6 +92,7 @@ const LineData = () => {
                     <td>{line.X}</td>
                     <td>{line.charging}</td>
                     <td>{line.Tap}</td>
+                    <td>{line.Smax}</td>
                   </tr>
                 ))}
                 </>
@@ -103,10 +104,11 @@ const LineData = () => {
                       <td>{index + 1}.</td>
                       <td><input type="number" min={1} onChange={(e)=> handleLineInputChange(index, "from", parseInt(e.target.value))} /></td>
                       <td><input type="number" min={1} onChange={(e)=> handleLineInputChange(index, "to", parseInt(e.target.value))} /></td>
-                      <td><input type="number" step="0.001" onChange={(e)=> handleLineInputChange(index, "R", parseFloat(e.target.value))} /></td>
-                      <td><input type="number" step="0.001" onChange={(e)=> handleLineInputChange(index, "X", parseFloat(e.target.value))} /></td>
-                      <td><input type="number" step="0.001" onChange={(e)=> handleLineInputChange(index, "charging", parseFloat(e.target.value))} /></td>
-                      <td><input type="number" step="0.001" onChange={(e)=> handleLineInputChange(index, "Tap", parseFloat(e.target.value))} /></td>
+                      <td><input type="number" step="0.1" onChange={(e)=> handleLineInputChange(index, "R", parseFloat(e.target.value))} /></td>
+                      <td><input type="number" step="0.1" onChange={(e)=> handleLineInputChange(index, "X", parseFloat(e.target.value))} /></td>
+                      <td><input type="number" step="0.1" onChange={(e)=> handleLineInputChange(index, "charging", parseFloat(e.target.value))} /></td>
+                      <td><input type="number" step="0.1" onChange={(e)=> handleLineInputChange(index, "Tap", parseFloat(e.target.value))} /></td>
+                      <td><input type="number" step="0.1" onChange={(e)=> handleLineInputChange(index, "Smax", parseFloat(e.target.value))} /></td>
                     </tr>
                   ))}
                 </>

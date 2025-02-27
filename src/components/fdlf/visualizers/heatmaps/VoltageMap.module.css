@@ -6,7 +6,7 @@
     justify-content: center;
     flex-direction: column;
     border-radius: 16px;
-    /* box-shadow: #0000002a 0 0 8px; */
+    box-shadow: #0000002a 0 0 8px;
     max-width: 1020px;
     margin-top: 75px;
     margin: auto;

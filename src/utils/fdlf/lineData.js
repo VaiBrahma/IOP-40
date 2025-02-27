@@ -8,6 +8,7 @@ export const autofillSixLines = () => {
     let defaultX = [0.168, 0.126, 0.126, 0.136, 0.210, 0.252];
     let defaultCharging = [0.082, 0.062, 0.062, 0.164, 0.102, 0.122];
     let defaultTap = [0, 0, 0, 0, 0, 0];
+    let defaultSmax = Array(numLines).fill(100);
     
     for (var i = 0; i < numLines; i++) {
         lines.push({
@@ -16,7 +17,8 @@ export const autofillSixLines = () => {
             R:defaultR[i],
             X: defaultX[i],
             charging: defaultCharging[i],
-            Tap: defaultTap[i]
+            Tap: defaultTap[i],
+            Smax: defaultSmax[i]
         });
     }
     return lines;
@@ -33,6 +35,7 @@ export const autofillTwentyLines = () => {
     let defaultX = [0.0592, 0.223, 0.1979, 0.1763, 0.1738, 0.171, 0.0421, 0.209, 0.5562, 0.2522, 0.1989, 0.2557, 0.1302, 0.1762, 0.011, 0.0845, 0.2703, 0.192, 0.1999, 0.3479];
     let defaultCharging = [0.1056, 0.984, 0.0876, 0.0748, 0.0678, 0.0692, 0.0256, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     let defaultTap = [0, 0, 0, 0, 0, 0, 0, 0.978, 0.969, 0.932, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    let defaultSmax = Array(numLines).fill(250);
     
     for (var i = 0; i < numLines; i++) {
         lines.push({
@@ -41,7 +44,8 @@ export const autofillTwentyLines = () => {
             R:defaultR[i],
             X: defaultX[i],
             charging: defaultCharging[i],
-            Tap: defaultTap[i]
+            Tap: defaultTap[i],
+            Smax: defaultSmax[i]
         });
     }
     return lines;
@@ -57,7 +61,8 @@ export const initializeLineData = (numLines) => {
             R: 0,
             X: 0,
             charging: 0,
-            Tap: 0
+            Tap: 0,
+            Smax: 100
         });
     }
     return lines;

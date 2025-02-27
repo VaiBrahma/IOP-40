@@ -1,6 +1,7 @@
 import React from "react";
 import Chart from "react-apexcharts";
 import styles from "./VoltageMap.module.css";
+import styless from '../../../tsa/charts/Chart.module.css'
 
 const Ybus = ({Ybus = [
   [complex(0, 5), complex(-1, -3), complex(-2, 1)],
@@ -36,15 +37,7 @@ const Ybus = ({Ybus = [
       },
     },
     colors: ["#008FFB"],
-    title: {
-      text: "Admittance Matrix",
-      align: 'center',
-      style: {
-        fontSize:  '14px',
-        fontWeight:  'bold',
-        color:  '#263238'
-      },
-    },
+
     tooltip: {
       enabled: true,
       custom: ({ series, seriesIndex, dataPointIndex, w }) => {
@@ -57,7 +50,10 @@ const Ybus = ({Ybus = [
   };
 
   return (
-    <div className={styles.voltageMapContainer}>
+    <div className={styles.voltageMapContainer} style={{marginTop: "50px", width: "95vw"}}>
+      <div className={styless.title}>
+        <h2>Y-Bus Map</h2>
+      </div>
       <Chart options={options} series={series} type="heatmap" className={styles.chart}/>
     </div>
   );

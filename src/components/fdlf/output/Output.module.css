@@ -46,8 +46,21 @@ h2{
     margin-bottom: 1rem;
 }
 
-.block{
-    width: 80vw;
-    margin: auto;
-    line-height: 2rem;
+.eff {
+  margin: auto;
+  margin-top: 20px;
+  width: 80%;
+  background-color: var(--white);
+  flex-direction: column;
+  border-radius: 16px;
+  box-shadow: #0000002a 0 0 8px;
+  margin-top: 75px;
+  padding: 5px 10px;
+}
+
+.eff p{
+    border: 1px solid red;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }

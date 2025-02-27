@@ -28,16 +28,16 @@ const Output = ({ iter, Vmag, delta, buses, lines, Pij, Qij, Pji, Qji, P_loss, Q
             <h2 className={styles.block}>Power Flow Output</h2>
 
             <div className={styles.eff}>
-                <p className={styles.block}>Number of iterations: {iter}</p>
+                <p><span>Number of iterations:</span><span>{iter}</span></p>
             </div>
 
             <PowerFlowTable Vmag={Vmag} delta={delta} buses={buses} />
             <LineFlowTable lines={lines} Pij={Pij} Qij={Qij} Pji={Pji} Qji={Qji} P_loss={P_loss} Q_loss={Q_loss} />
 
             <div className={styles.eff}>
-                <p className={styles.block}><span>Total real power losses (pu):</span> <span>{TotalP_loss.toFixed(4)}</span></p>
-                <p className={styles.block}><span>Total reactive power losses (pu):</span> <span>{TotalQ_loss.toFixed(4)}</span></p>
-                <p className={styles.block}><span>Efficiency:</span> <span>{calcEff(TotalP_loss, PgenSum)}%</span></p>
+                <p><span>Total real power losses (pu):</span> <span>{TotalP_loss.toFixed(4)}</span></p>
+                <p><span>Total reactive power losses (pu):</span> <span>{TotalQ_loss.toFixed(4)}</span></p>
+                <p><span>Efficiency:</span> <span>{calcEff(TotalP_loss, PgenSum)}%</span></p>
             </div>
 
             <div className={styles.charts}>

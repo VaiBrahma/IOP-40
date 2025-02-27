@@ -35,32 +35,35 @@
     align-items: center;
 }
 
-@media (max-width: 1020px){
-    .container, .block{
-        width: 95vw;
-    }   
-
-}
-
 h2{
     margin-bottom: 1rem;
 }
 
 .eff {
   margin: auto;
-  margin-top: 20px;
-  width: 80%;
+  width: 80vw;
   background-color: var(--white);
   flex-direction: column;
   border-radius: 16px;
   box-shadow: #0000002a 0 0 8px;
-  margin-top: 75px;
   padding: 5px 10px;
 }
 
 .eff p{
-    border: 1px solid red;
     width: 100%;
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid #eee;
+}
+
+.block{
+    text-align: center;
+    margin-top: 75px;
+}
+
+@media (max-width: 1020px){
+    .container, .eff{
+        width: 95vw;
+    }   
+
 }

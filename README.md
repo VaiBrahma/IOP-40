@@ -8,12 +8,12 @@ To analyze and evaluate the transient stability of a power system under fault co
 
 ## **Conducted By:**  
 
-| S. No. | Name             | Enrollment No. | Email                     |  
+| S. No. | Name            | Enrollment No. | Email                      |  
 |--------|-----------------|----------------|----------------------------|  
 | 1.     | Vaibhav Singh   | 22112111       | vaibhav_s1@ee.iitr.ac.in   |  
-| 2.     | Garv           | -              | garv@ee.iitr.ac.in        |  
-| 3.     | Palak Tripathi  | -              | palak_t@ee.iitr.ac.in     |  
-| 4.     | Vaibhav Kumar   | 22115157       | vaibhav_k@ee.iitr.ac.in   |  
+| 2.     | Garv            | 22112039       | garv@ee.iitr.ac.in         |  
+| 3.     | Palak Tripathi  | 22115112       | palak_t@ee.iitr.ac.in      |  
+| 4.     | Vaibhav Kumar   | 22115157       | vaibhav_k@ee.iitr.ac.in    |  
 
 ## **Under the Guidance of:**  
 

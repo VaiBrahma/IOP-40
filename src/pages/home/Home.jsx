@@ -18,9 +18,9 @@ const Home = () => {
           <h2>Submitted By: </h2>
           <table>
             <tbody>
-              <tr><td><li>Palak Tripathi</li></td><td>---------------</td></tr>
+              <tr><td><li>Palak Tripathi</li></td><td>22115112</td></tr>
               <tr><td><li>Vaibhav Singh</li></td><td>22112111</td></tr>
-              <tr><td><li>Garv</li></td><td>---------------</td></tr>
+              <tr><td><li>Garv</li></td><td>22112039</td></tr>
               <tr><td><li>Vaibhav Kumar</li></td><td>22115157</td></tr>
             </tbody>
           </table>

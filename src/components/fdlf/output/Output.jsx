@@ -27,7 +27,7 @@ const Output = ({ iter, Vmag, delta, buses, lines, Pij, Qij, Pji, Qji, P_loss, Q
             <YMatrix/>
             <h2 className={styles.block}>Power Flow Output</h2>
 
-            <div className={styles.eff}>
+            <div className={`${styles.eff} ${styles.iter}`}>
                 <p><span>Number of iterations:</span><span>{iter}</span></p>
             </div>
 

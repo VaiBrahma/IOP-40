@@ -67,3 +67,7 @@ h2{
     }   
 
 }
+
+.iter p{
+    border-bottom: none;
+}

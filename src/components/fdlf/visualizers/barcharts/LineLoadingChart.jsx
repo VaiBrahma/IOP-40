@@ -20,7 +20,7 @@ const LineLoadingChart = ({ lines }) => {
 
     <div className={styles.container} style={{height: "auto"}}>
         <div className={styles.title}>
-            <h2>Percentage Overloading</h2>
+            <h2>Percentage Loading</h2>
         </div>
     <ResponsiveContainer width="100%" height={300}>
       <BarChart data={chartData} layout="vertical" barSize={40}>

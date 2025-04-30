@@ -16,7 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/fdlf" element={<FDLF />} />
           <Route path="/tsa" element={<TSA />} />
-          <Route path="*" element={<Navigate to="/" />} /> {/* Redirect unknown routes */}
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>
     </Provider>

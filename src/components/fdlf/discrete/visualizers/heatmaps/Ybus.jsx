@@ -1,7 +1,7 @@
 import React from "react";
 import Chart from "react-apexcharts";
 import styles from "./VoltageMap.module.css";
-import styless from '../../../tsa/charts/Chart.module.css'
+import styless from '../../../../tsa/charts/Chart.module.css'
 
 const Ybus = ({Ybus = [
   [complex(0, 5), complex(-1, -3), complex(-2, 1)],

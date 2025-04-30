@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
-import styles from '../../../tsa/charts/Chart.module.css'
+import styles from '../../../../tsa/charts/Chart.module.css'
 
 const LineLoadingChart = ({ lines }) => {
   const linesData = useSelector(state => state.lines);

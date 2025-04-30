@@ -1,5 +1,5 @@
 import { XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, Rectangle, LabelList } from 'recharts';
-import styles from '../../../tsa/charts/Chart.module.css'
+import styles from '../../../../tsa/charts/Chart.module.css'
 import VoltageMap from '../heatmaps/VoltageMap';
 
 const VoltageChart = ({Vmag}) => {

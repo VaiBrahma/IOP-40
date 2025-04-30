@@ -1,10 +1,10 @@
 .superContainer{
-    height: 120px;
+    height: 20px;
     width: 100vw;
     /* border: 2px solid red; */
     position: fixed;
     top:0;
-    z-index: 100;
+    z-index: 3;
 }
 
 .container{
@@ -15,7 +15,7 @@
     justify-content:space-between;
     align-items: center;
     /* border: 1px solid red; */
-    min-height: 60px;;
+    min-height: 60px;
     position: sticky;
     top: 0;
     z-index: 1;

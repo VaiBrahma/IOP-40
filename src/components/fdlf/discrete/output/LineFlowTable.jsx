@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import styles from './Output.module.css';
-import { setLinesMatrix } from '../../../redux/slices/linesSlice';
+import { setLinesMatrix } from '../../../../redux/slices/linesSlice';
 
 const LineFlowTable = ({ lines, Pij, Qij, Pji, Qji, P_loss, Q_loss }) => {
   const dispatch = useDispatch();

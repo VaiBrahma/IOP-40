@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import styles from './YMatrix.module.css';
-import { convertFromReduxCompatible } from '../../../utils/fdlf/reduxConversion';
-import { formatComplexNumber } from '../../../utils/fdlf/calculation';
+import { convertFromReduxCompatible } from '../../../../utils/fdlf/reduxConversion';
+import { formatComplexNumber } from '../../../../utils/fdlf/calculation';
 // import Ybuss from '../visualizers/heatmaps/Ybus.jsx'
 
 const YMatrix = () => {

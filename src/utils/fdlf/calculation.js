@@ -57,6 +57,7 @@ export const calculateJacobian = (numBuses, Vmag, delta, Ybus, Ybus1, buses) => 
 export const runLoadFlow = (buses, lines, Tolerance, MaIteration, Ybus, Ybus1) => {
 
     let Vmag, delta, iter, Pij, Qij, Pji, Qji, P_loss, Q_loss, TotalP_loss, TotalQ_loss;
+    // console.log(buses, lines);
   
     let I = Array(buses.length).fill(math.complex(0, 0));
     

@@ -1,21 +1,21 @@
 import * as math from 'mathjs';
 
 const Ybus_fixedd = [
-  [{ re: 6.25, im: -18.7225 }, { re: -5.0, im: 15.0 }, { re: -1.25, im: 3.75 }, { re: 0.0, im: 0.0 }, { re: 0.0, im: 0.0 }],
-  [{ re: -5.0, im: 15.0 }, { re: 10.8333, im: -32.4575 }, { re: -1.6667, im: 5.0 }, { re: -1.6667, im: 5.0 }, { re: -2.5, im: 7.5 }],
-  [{ re: -1.25, im: 3.75 }, { re: -1.6667, im: 5.0 }, { re: 12.9167, im: -38.7225 }, { re: 0.0, im: 0.0 }, { re: -10.0, im: 30.0 }],
-  [{ re: 0.0, im: 0.0 }, { re: -1.6667, im: 5.0 }, { re: 0.0, im: 0.0 }, { re: 2.9167, im: -8.7275 }, { re: -1.25, im: 3.75 }],
-  [{ re: 0.0, im: 0.0 }, { re: -2.5, im: 7.5 }, { re: -10.0, im: 30.0 }, { re: -1.25, im: 3.75 }, { re: 13.75, im: -41.225 }],
+  [{ real: 6.25, imag: -18.7225 }, { real: -5.0, imag: 15.0 }, { real: -1.25, imag: 3.75 }, { real: 0.0, imag: 0.0 }, { real: 0.0, imag: 0.0 }],
+  [{ real: -5.0, imag: 15.0 }, { real: 10.8333, imag: -32.4575 }, { real: -1.6667, imag: 5.0 }, { real: -1.6667, imag: 5.0 }, { real: -2.5, imag: 7.5 }],
+  [{ real: -1.25, imag: 3.75 }, { real: -1.6667, imag: 5.0 }, { real: 12.9167, imag: -38.7225 }, { real: 0.0, imag: 0.0 }, { real: -10.0, imag: 30.0 }],
+  [{ real: 0.0, imag: 0.0 }, { real: -1.6667, imag: 5.0 }, { real: 0.0, imag: 0.0 }, { real: 2.9167, imag: -8.7275 }, { real: -1.25, imag: 3.75 }],
+  [{ real: 0.0, imag: 0.0 }, { real: -2.5, imag: 7.5 }, { real: -10.0, imag: 30.0 }, { real: -1.25, imag: 3.75 }, { real: 13.75, imag: -41.225 }],
 ];
 
 const linedata = [
-  { from: 1, to: 2, r: 0.02, x: 0.06, b: 0.03 },
-  { from: 1, to: 3, r: 0.08, x: 0.24, b: 0.025 },
-  { from: 2, to: 3, r: 0.06, x: 0.18, b: 0.02 },
-  { from: 2, to: 4, r: 0.06, x: 0.18, b: 0.02 },
-  { from: 2, to: 5, r: 0.04, x: 0.12, b: 0.015 },
-  { from: 3, to: 5, r: 0.01, x: 0.03, b: 0.01 },
-  { from: 4, to: 5, r: 0.08, x: 0.24, b: 0.025 },
+  { from: 1, to: 2, R: 0.02, X: 0.06, charging: 0.03 },
+  { from: 1, to: 3, R: 0.08, X: 0.24, charging: 0.025 },
+  { from: 2, to: 3, R: 0.06, X: 0.18, charging: 0.02 },
+  { from: 2, to: 4, R: 0.06, X: 0.18, charging: 0.02 },
+  { from: 2, to: 5, R: 0.04, X: 0.12, charging: 0.015 },
+  { from: 3, to: 5, R: 0.01, X: 0.03, charging: 0.01 },
+  { from: 4, to: 5, R: 0.08, X: 0.24, charging: 0.025 },
 ];
 
 const base_busdata = [
@@ -71,21 +71,23 @@ export const stochasticFDLF = (baseBusData = base_busdata, lineData = linedata, 
 };
 
 function computeLineFlows(V, delta, lineData) {
-  return lineData.map(({ from, to, r, x }) => {
+  return lineData.map(({ from, to, R, X }) => {
     const i = from - 1;
     const j = to - 1;
-    const z = math.complex(r, x);
+    const z = math.complex(R, X);
     const y = math.divide(1, z);
     const Vi = math.multiply(V[i], math.exp(math.complex(0, delta[i])));
     const Vj = math.multiply(V[j], math.exp(math.complex(0, delta[j])));
     const I = math.multiply(y, math.subtract(Vi, Vj));
     const S = math.multiply(math.conj(I), Vi);
-    return S.re || 0; // Safely return real part
+    return S.re || 0;
   });
 }
 
-function fdlfSolver(busData, lineData, Ybus) {
+function fdlfSolver(busData, lineData, Ybus_raw) {
   const nbus = busData.length;
+  const Ybus = Ybus_raw.map(row => row.map(c => ({ re: c.real, im: c.imag })));
+
   const V = busData.map(bus => bus.V || 1.0);
   const delta = busData.map(bus => (bus.angle || 0) * Math.PI / 180);
   const Pg = busData.map(bus => bus.Pg || 0);

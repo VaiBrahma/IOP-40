@@ -57,11 +57,12 @@ const RunButton = () => {
       convertFromReduxCompatible(Ybus1)
     );
 
+    console.log(busess, liness, Ybus);
     const stochasticFDLFresult = stochasticFDLF(
-      // busess,
-      // liness,
-      // 500,
-      // convertFromReduxCompatible(Ybus)
+      busess,
+      liness,
+      500,
+      Ybus
     );
 
     console.log("These are the stochastic FDLF results:", stochasticFDLFresult);

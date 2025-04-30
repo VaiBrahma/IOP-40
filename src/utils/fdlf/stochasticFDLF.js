@@ -93,9 +93,9 @@ function fdlfSolver(busData, lineData, Ybus_raw) {
   const Pg = busData.map(bus => bus.Pg || 0);
   const Qg = busData.map(bus => bus.Qg || 0);
   const Pl = busData.map(bus => bus.PL || 0);
-  const Ql = busData.map(bus => bus.QL || 0);
-  const Qmax = busData.map(bus => bus.Qmax || Infinity);
-  const Qmin = busData.map(bus => bus.Qmin || -Infinity);
+  const Ql = busData.map(bus => bus.QL || 0); 
+  const Qmax = busData.map(bus => bus.Qmax || Infinity); 
+  const Qmin = busData.map(bus => bus.Qmin || -Infinity); 
 
   let P = Pg.map((p, i) => p - Pl[i]);
   let Q = Qg.map((q, i) => q - Ql[i]);

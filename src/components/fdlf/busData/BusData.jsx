@@ -68,8 +68,8 @@ const handleFileUpload = () => {
         <div className={styles.headerr}>
           <div className={styles.title}>{title}</div>
           <div className={styles.btns}>
-            <button className={`${styles.blu} btn`} onClick={handleAutofillFiveBusNetwork}>IEEE 5-Bus</button>
-            <button className={`${styles.blu} btn`} onClick={handelAutofillFourteenBusNetwork}>IEEE 14-Bus</button>
+            <button className={`${styles.blu} btn`} onClick={handleAutofillFiveBusNetwork}>IEEE 5-BUS</button>
+            <button className={`${styles.blu} btn`} onClick={handelAutofillFourteenBusNetwork}>IEEE 14-BUS</button>
             <button className={`${styles.grn} btn`} onClick={handleFileUpload}>Upload XLSX</button>
             <button className={`${styles.rd} btn`} onClick={()=>{setFlag(e=>!e)}}>Manually Add Data</button>
           </div>
